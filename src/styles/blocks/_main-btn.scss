@@ -1,0 +1,24 @@
+.main-btn{
+    width: 38rem;
+    height: 6.3rem;
+    border-radius: 8px;
+    border: 0;
+    outline: 0;
+    text-align: center;
+    
+
+    &--blue{
+        background-color: rgb(13, 32, 42);
+        color:  rgb(255, 255, 255);
+        font-family: Montserrat-SemiBold;
+        font-size: 18px;
+    }
+    &--white{
+        background-color: rgb(255, 255, 255);
+        color:  rgb(13, 32, 42);
+        font-family: Montserrat-SemiBold;
+        font-size: 18px;
+       
+    }
+}
+
