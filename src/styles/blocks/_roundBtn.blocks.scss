@@ -1,0 +1,19 @@
+.b-roundBtn{
+
+    background-color: $c-white;
+    border-radius: 50%;
+    border: none;
+
+
+    &__small{
+        width: 50px;
+        height: 50px;
+        
+    }
+    &__big{
+        width: 60px;
+        height: 60px;
+
+    }
+    
+}
