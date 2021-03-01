@@ -2,7 +2,6 @@ import { useEffect } from "react";
 
 import fixHeight from "./fixHeightMobile";
 
-import MainWrapper from './containers/Main'
 
 
 
@@ -12,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <MainWrapper blue logo> hello</MainWrapper>
+
     </div>
   );
 }
