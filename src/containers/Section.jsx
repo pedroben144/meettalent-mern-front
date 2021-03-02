@@ -1,9 +1,9 @@
 import React from 'react';
 
-export function Section(){
+export function Section(props){
 
     return(
-        <section></section>
+        <section>{props.children}</section>
     );
 
 }
