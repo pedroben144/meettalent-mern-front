@@ -5,6 +5,7 @@ import 'swiper/swiper.scss';
 import 'swiper/components/pagination/pagination.scss';
 
 import Header from '../../containers/Header';
+import Section from '../../containers/Section';
 import MainWrapper from '../../containers/Main';
 import MainWButton from '../../components/MainBtn';
 import Slide1 from './components/Slide1';
@@ -34,7 +35,9 @@ export default function LandingPage({...mainProps}, {...btnProps}) {
 
     return (
         <MainWrapper {...mainProps}>
-            <Header skip>hey</Header>
+            <Header></Header>
+            <Section>
+
             <Swiper
                 spaceBetween={0}
                 slidesPerView={1}
@@ -46,9 +49,8 @@ export default function LandingPage({...mainProps}, {...btnProps}) {
                 <SwiperSlide><Slide3 /></SwiperSlide>
                 <SwiperSlide><Slide4 /></SwiperSlide>
             </Swiper>
-            <MainWButton {...btnProps}>Continuar</MainWButton>
-            <section>
-            </section>
+            <MainWButton {...btnProps}>Comenzar</MainWButton>
+            </Section>
         </MainWrapper>
     )
 }

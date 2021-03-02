@@ -1,18 +1,21 @@
 .swiper {
     &-container {
-        height: 70%;
+        height: 75%;
         width: 100%;
     }
 
     &-wrapper {
         height: calc(100% - 40px) !important;
+        max-width: 100%;
     }
-
+    
     &-slide {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        max-width: 100%;
+        overflow: hidden;
     }
 
     &-pagination {

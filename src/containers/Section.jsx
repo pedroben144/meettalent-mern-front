@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Section(props){
+export default function Section(props){
 
     return(
         <section>{props.children}</section>

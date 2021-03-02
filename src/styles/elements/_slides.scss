@@ -1,0 +1,38 @@
+.swiper-slide {
+    * {
+        margin: 0;
+    }
+    &__logo {
+        margin-bottom: 6rem;
+        
+        &--1 {
+            width: 25%;
+        }
+        
+        &--2 {
+            margin-bottom: 8rem;
+            width: 40%;
+        }
+    }
+
+    &__slogan {
+        color: $c-cyan;
+        font-size: 3.2rem;
+        font-weight: $-f-bold;
+        margin-bottom: 4rem;
+
+    }
+
+    &__text {
+        position: absolute;
+        bottom: 4rem;
+        font-size: 2rem;
+        font-weight: $-f-medium;
+        padding: 2.8rem 6.4rem;
+        text-align: center;
+
+        &--blue {
+            color: $c-blue-50;
+        }
+    }
+}

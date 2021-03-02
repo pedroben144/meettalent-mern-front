@@ -1,7 +1,12 @@
 import React from 'react';
 
 export default function Slide4() {
+
+
+    
     return (
-        <div className='swiper swiper--white'>Hello 4</div>
+        <>
+            <p className="swiper-slide__text swiper-slide__text--blue">Agiliza tus procesos de selección de una manera sencilla, potente y rápida</p>
+        </>
     )
 }
