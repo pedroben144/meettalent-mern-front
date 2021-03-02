@@ -1,12 +1,13 @@
 import React from 'react';
 
-export  function Header(props) {
+export default function Header(props) {
    
 
     return (
         
         <header className="header">
-            {props.goBack && <span>{"<"}</span> }
+            {props.goBack && <button onClick={props.fn}>{"<"}</button> }
+            {props.children}
         </header>
     )
 }
