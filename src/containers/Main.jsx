@@ -1,23 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
+import { MainContext } from '../contexts/MainContext';
 
 export default function MainWrapper(props) {
 
-    const [ className, setClassName ] = useState('');
+    const { mainStyle } = useContext(MainContext);
 
-    const getClassName = () => {
-        let result = 'main';
+    const setClassName = () => {
+        let className = 'main';
 
-        if (props.hasOwnProperty('blue')) result += ' main--blue';
-        if (props.hasOwnProperty('white')) result += ' main--white';
-        if (props.hasOwnProperty('logo')) result += ' main--logo';
+        switch (mainStyle) {
+            case 'blue':
+                className += ' main--blue';
+                break;
+            case 'white':
+                className += ' main--white';
+                break;
+            case 'logo':
+                className += ' main--blue main--logo';
+                break;
+            default:
+                break;
+        }
 
-        setClassName(result);
+        return className;
     }
 
-    useEffect(getClassName, [props]);
-
     return (
-        <main className={className}>
+        <main className={setClassName()}>
             {props.children}
         </main>
     )
