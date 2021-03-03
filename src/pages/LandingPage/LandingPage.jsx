@@ -31,7 +31,7 @@ export default function LandingPage() {
 
     return (
         <>
-            <Header>hey</Header>
+            {/* <Header></Header> */}
             <Section>
 
             <Swiper
