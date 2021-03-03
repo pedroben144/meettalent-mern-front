@@ -1,22 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
+import { MainContext } from '../contexts/MainContext';
 
 export default function MainWButton(props) {
 
-    const [ className, setClassName ] = useState('');
+    const { mainStyle } = useContext(MainContext);
 
     const getClassName = () => {
-        let result = 'main-btn';
+        let className = 'main-btn';
 
-        if (props.hasOwnProperty('blue')) result += ' main-btn--blue';
-        if (props.hasOwnProperty('white')) result += ' main-btn--white';
+        switch (mainStyle) {
+            case 'white':
+                className += ' main-btn--blue';
+                break;
+            case 'blue':
+                className += ' main-btn--white';
+                break;
+            case 'logo':
+                className += ' main-btn--blue';
+                break;
+            default:
+                break;
+        }
 
-        setClassName(result);
+        return className;
     }
 
-    useEffect(getClassName, [props]);
-
     return (
-        <button className={className}>
+        <button className={getClassName()}>
             {props.children} 
         </button>
     )
