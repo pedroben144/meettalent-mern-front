@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Routes } from "./core/components/Routes/Routes";
+import { Routes } from "./components/Routes";
 import fixHeight from "./fixHeightMobile";
 
 
