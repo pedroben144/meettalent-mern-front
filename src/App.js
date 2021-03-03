@@ -1,6 +1,8 @@
 import { useEffect } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Routes } from "./core/components/Routes/Routes";
 import fixHeight from "./fixHeightMobile";
-import LandingPage from "./pages/LandingPage/LandingPage";
+
 
 
 
@@ -10,9 +12,13 @@ function App() {
   useEffect(fixHeight, []);
 
   return (
-    <div className="App">
-      <LandingPage />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes/>
+      </div>
+
+    </Router>
+    
   );
 }
 
