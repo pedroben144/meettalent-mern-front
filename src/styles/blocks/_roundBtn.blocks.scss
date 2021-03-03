@@ -4,16 +4,40 @@
     border-radius: 50%;
     border: none;
 
-
     &__small{
-        width: 6.25rem;
-        height: 6.25rem;
+        width: 6rem;
+        height: 6rem;
+
+    }
+    &__medium{
+        width: 6.5rem;
+        height: 6.5rem;
         
     }
     &__big{
-        width: 7.5rem;
-        height: 7.5rem;
+        width: 7.6rem;
+        height: 7.6rem;
 
+    }
+    &__edit{
+        font-size: 3.5rem;
+        color: $c-cyan;
+    }
+    &__profile{
+        font-size: 3.4rem;
+        color: $c-cyan;
+    }
+    &__plus{
+        font-size: 3.2rem;
+        color:$c-blue-100;
+        &--small{
+            font-size: 2.6rem;
+        }
+
+    }
+
+    &__marginIcon{
+        margin-top: 0.6rem;
     }
     
 }
