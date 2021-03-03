@@ -39,7 +39,7 @@ export default function LandingPage({...mainProps}, {...btnProps}) {
             <Section>
 
             <Swiper
-                spaceBetween={0}
+                spaceBetween={1000}
                 slidesPerView={1}
                 pagination
                 onSlideChange={(swiper) => handleSwipe(swiper)}
