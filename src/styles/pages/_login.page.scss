@@ -1,0 +1,92 @@
+.c-login-page {
+  margin-top: 5rem;
+
+  &__imgs-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__logo-img {
+    height: 15rem;
+    margin-bottom: 4rem;
+  }
+  &__text-logo-img {
+    width: 18rem;
+    margin-bottom: 6rem;
+  }
+  &__input-cont {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+
+    &--margin-top {
+      margin-top: 4rem;
+    }
+  }
+  &__label {
+    padding-left: 7rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+  &__input-cont-2 {
+    display: flex;
+    justify-content: center;
+  }
+  &__error-message {
+    padding: 0 7rem 0 7rem;
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    color: red;
+  }
+  &__submit-cont {
+    display: flex;
+    justify-content: center;
+  }
+  &__restore-pass-cont {
+    margin-top: 3rem;
+    padding: 0 5rem 0 5rem;
+    font-size: 1.7rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  &__restore-pass-txt {
+    margin: 0;
+    line-height: 3rem;
+  }
+  &__restore-link {
+    padding-left: 0.5rem;
+    text-decoration: none;
+    color: $c-green-dark;
+  }
+  &__decoration-bar-cont {
+    margin: 2rem 0 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem 0 5rem;
+  }
+  &__line-decoration {
+    background-color: $c-white;
+    height: 0.1rem;
+    width: 45%;
+  }
+  &__circle-decoration {
+    width: 1.5rem;
+    height: 1.5rem;
+    // background-color: $c-white;
+    border: 0.1rem solid $c-white;
+    border-radius: 50%;
+  }
+  &__new-account-cont {
+    display: flex;
+    justify-content: center;
+  }
+  &__new-account-link {
+    text-decoration: none;
+    color: $c-white;
+    font-size: 2.5rem;
+    font-weight: $-f-bold;
+  }
+}
