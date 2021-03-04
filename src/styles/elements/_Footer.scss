@@ -1,9 +1,45 @@
 .footer {
-    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
     bottom: 0;
     height: 80px;
     width: 100%;
     border-radius: 24px 24px 0 0;
     
-    background-color: red;
+    &__link {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        color: $c-blue-75;
+        height: 50%;
+        width: fill;
+        transform: scale(1.4);
+        text-decoration: none;
+        transition: all 0.5s;
+        
+        &__text {
+            font-size: 1rem;
+        }
+        
+        &--active {
+            color: $c-blue-50;
+            & > * {
+                font-weight: $-f-bold;
+                stroke-width: 3;
+            }
+            
+            &--create {
+                color: $c-blue-50;
+                & > * {
+                    font-weight: $-f-bold;
+                    stroke-width: 1;
+                }
+            }
+        }
+    }
+    
+    background-color: $c-white;
 }
