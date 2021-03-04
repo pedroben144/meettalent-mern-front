@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { MainContext } from "./contexts/MainContext";
+import { FooterContext } from "./contexts/FooterContext";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routes } from "./components/Routes";
 
@@ -16,21 +17,23 @@ import StartUp from "./components/StartUp";
 
 function App() {
 
-  const [ mainStyle, setMainStyle ] = useState('white');
+  const [ mainStyle, setMainStyle ] = useState('blue');
   const [ footer, setFooter ] = useState(false);
   const [ startLoader, setStartLoader ] = useState(true);
 
   useEffect(fixHeight, []);
-  useEffect(() => {setTimeout(() => setStartLoader(false), 2000)}, []);
+  useEffect(() => {setTimeout(() => setStartLoader(false), 3000)}, []);
 
   return (
     <Router>
       <MainContext.Provider value={{ mainStyle, setMainStyle }}>
-        <MainWrapper>
-          {startLoader && <StartUp />}
-          {startLoader === false && <Routes/>}
-          {footer && <Footer />}
-        </MainWrapper>
+        <FooterContext.Provider value={{ setFooter }}>
+          <MainWrapper>
+            {startLoader && <StartUp />}
+            {startLoader === false && <Routes/>}
+            {footer && <Footer />}
+          </MainWrapper>
+        </FooterContext.Provider>
       </MainContext.Provider>
     </Router>
   );

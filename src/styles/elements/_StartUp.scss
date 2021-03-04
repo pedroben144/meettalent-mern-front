@@ -3,6 +3,8 @@
     height: 100vh;
     display: block;
     position: relative;
+    opacity: 1;
+    animation: fadeOut 1s forwards 2s;
     &__container{
         margin: 0;
         position: absolute;
@@ -20,5 +22,11 @@
         display: block;
         margin: auto;
         margin-top: 25px;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
     }
 }
