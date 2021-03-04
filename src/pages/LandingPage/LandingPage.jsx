@@ -5,7 +5,6 @@ import 'swiper/swiper.scss';
 import 'swiper/components/pagination/pagination.scss';
 
 import { MainContext } from '../../contexts/MainContext';
-import Header from '../../containers/Header';
 import Section from '../../containers/Section';
 import MainWButton from '../../components/MainBtn';
 import Slide1 from './components/Slide1';
@@ -31,7 +30,6 @@ export default function LandingPage() {
 
     return (
         <>
-            <Header>hey</Header>
             <Section>
 
             <Swiper
