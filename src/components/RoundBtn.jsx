@@ -3,7 +3,7 @@ import { AiOutlineEdit } from "react-icons/ai";
 import { FiUser } from "react-icons/fi";
 import { FiPlus } from "react-icons/fi";
 
-export function RoundBtn(props){
+export default function RoundBtn(props){
 
     return(
 

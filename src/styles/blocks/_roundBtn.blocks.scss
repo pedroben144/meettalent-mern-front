@@ -3,6 +3,8 @@
     background-color: $c-white;
     border-radius: 50%;
     border: none;
+    outline: none;
+    cursor: pointer;
 
     &__small{
         width: 6rem;
