@@ -7,7 +7,7 @@ import { Routes } from "./components/Routes";
 import fixHeight from "./fixHeightMobile";
 
 import MainWrapper from './containers/Main';
-import RoundBtn from "./components/RoundBtn";
+import Footer from "./components/Footer";
 
 
 
@@ -15,14 +15,16 @@ import RoundBtn from "./components/RoundBtn";
 function App() {
 
   const [ mainStyle, setMainStyle ] = useState('white');
+  const [ footer, setFooter ] = useState(true);
 
   useEffect(fixHeight, []);
 
   return (
     <Router>
-      <MainContext.Provider value={{ mainStyle, setMainStyle }}>
+      <MainContext.Provider value={{ mainStyle, setMainStyle, footer }}>
         <MainWrapper>
           <Routes/>
+          {footer && <Footer />}
         </MainWrapper>
       </MainContext.Provider>
     </Router>
