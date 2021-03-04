@@ -11,10 +11,10 @@ import MainWrapper from './containers/Main';
 
 
 
-
 function App() {
 
   const [ mainStyle, setMainStyle ] = useState('white');
+  const [ footer, setFooter ] = useState(false);
 
   useEffect(fixHeight, []);
 
@@ -23,6 +23,7 @@ function App() {
       <MainContext.Provider value={{ mainStyle, setMainStyle }}>
         <MainWrapper>
           <Routes/>
+          {footer && <Footer />}
         </MainWrapper>
       </MainContext.Provider>
     </Router>
