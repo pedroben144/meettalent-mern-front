@@ -8,4 +8,9 @@
     align-items: center;
     background-color: transparent;
     font-weight: $-f-medium;
+    &__button{
+        position: fixed;
+        left: 0;
+        margin-left: 9%;
+    }
 }

@@ -1,0 +1,39 @@
+.b-IconContainer{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 4rem;
+
+    &__container{
+        width: 9rem;
+        height: 9rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.8rem;
+    }
+    &__facebook{
+        background-color: rgb( 46, 77, 142);
+        color: $c-white;
+        font-size: 4rem;
+       
+    }
+    &__google{
+        background-color: $c-white;
+        font-size: 3.5rem;
+    }
+    &__apple{
+        background-color: $c-white;
+        font-size: 4rem;
+    }
+    &__text{
+        margin-bottom: 2rem;
+        color: $c-blue-75;
+        font-size: 1.6rem;
+        font-weight: $-f-semi;
+    
+    }
+}
+.b-IconContainerFather{
+    width: 80%;
+    border-bottom: 0.1rem solid $c-gray-50;
+}

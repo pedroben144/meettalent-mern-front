@@ -6,7 +6,7 @@ export default function Header(props) {
     return (
         
         <header className="header">
-            {props.goBack && <button onClick={props.fn}>{"<"}</button> }
+            {props.goBack && <button className="header__button" onClick={props.fn}>{"<"}</button> }
             {props.children}
         </header>
     )
