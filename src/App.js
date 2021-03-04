@@ -19,7 +19,6 @@ function App() {
   useEffect(fixHeight, []);
 
   return (
-
     <Router>
       <MainContext.Provider value={{ mainStyle, setMainStyle }}>
         <MainWrapper>
