@@ -33,6 +33,12 @@
     display: flex;
     justify-content: center;
   }
+  &__error-message {
+    padding: 0 7rem 0 7rem;
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    color: red;
+  }
   &__submit-cont {
     display: flex;
     justify-content: center;

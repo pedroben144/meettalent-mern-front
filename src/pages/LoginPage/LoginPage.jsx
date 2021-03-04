@@ -35,7 +35,7 @@ export function LoginPage() {
               alt="Title Logo Img"
             />
           </div>
-          <form>
+          <form onSubmit={handleSubmit(doSubmit)}>
             <div className="c-login-page__input-cont">
               <label className="c-login-page__label" htmlFor="email">
                 Email ID
@@ -50,7 +50,11 @@ export function LoginPage() {
                   ref={register({ required: true })}
                 />
               </div>
-              {errors.email && <span>Es necesario introducir un email</span>}
+              {errors.email && (
+                <span className="c-login-page__error-message">
+                  Es necesario introducir un email
+                </span>
+              )}
             </div>
 
             <div className="c-login-page__input-cont c-login-page__input-cont--margin-top">
@@ -67,8 +71,10 @@ export function LoginPage() {
                   ref={register({ required: true })}
                 />
               </div>
-              {errors.email && (
-                <span>Es necesario introducir una contraseña</span>
+              {errors.password && (
+                <span className="c-login-page__error-message">
+                  Es necesario introducir una contraseña
+                </span>
               )}
             </div>
 
