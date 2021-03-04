@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LandingPage from '../pages/LandingPage/LandingPage';
+import Step1 from '../pages/SignUpPage/Steps/Steps1';
 
 
 export function Routes(){
@@ -31,7 +32,7 @@ export function Routes(){
                 <p>RecoverPage</p>
             </Route>
             <Route  path="/signup">
-                <p>RegisterPage</p>
+                <Step1/>
             </Route>
             <Route  path="/login">
                 <p>LoginPage</p>

@@ -7,8 +7,6 @@ import { Routes } from "./components/Routes";
 import fixHeight from "./fixHeightMobile";
 
 import MainWrapper from './containers/Main';
-import RoundBtn from "./components/RoundBtn";
-
 
 
 
@@ -19,7 +17,6 @@ function App() {
   useEffect(fixHeight, []);
 
   return (
-
     <Router>
       <MainContext.Provider value={{ mainStyle, setMainStyle }}>
         <MainWrapper>
