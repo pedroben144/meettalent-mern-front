@@ -1,6 +1,12 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import LandingPage from "../pages/LandingPage/LandingPage";
+import { NotFound } from "../pages/404Page/NotFound";
+import { HomePage } from "../pages/HomePage/HomePage";
+import { PeoplePage } from "../pages/PeoplePage/PeoplePage";
+import { ProfilePage } from "../pages/ProfilePage/ProfilePage";
+import { RecoverPage } from "../pages/RecoverPage/RecoverPage";
+import { SignupPage } from "../pages/SignupPage/SignupPage";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
 
 export function Routes() {
@@ -22,16 +28,16 @@ export function Routes() {
         <p>PeoplePageDetail</p>
       </Route>
       <Route path="/people">
-        <p>PeoplePage</p>
+        <PeoplePage />
       </Route>
       <Route path="/search">
         <p>SearchPage</p>
       </Route>
       <Route path="/recover">
-        <p>RecoverPage</p>
+        <RecoverPage />
       </Route>
       <Route path="/signup">
-        <p>RegisterPage</p>
+        <SignupPage />
       </Route>
       <Route path="/login">
         <LoginPage />
@@ -40,13 +46,13 @@ export function Routes() {
         <LandingPage />
       </Route>
       <Route path="/profile">
-        <p>ProfilePage</p>
+        <ProfilePage />
       </Route>
       <Route exact path="/home">
-        <p>homePage</p>
+        <HomePage />
       </Route>
       <Route path="*">
-        <p>URL NOT FOUND</p>
+        <NotFound />
       </Route>
     </Switch>
   );
