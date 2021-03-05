@@ -3,14 +3,14 @@ import React, { useContext, useEffect } from "react";
 import { MainContext } from "../../contexts/MainContext";
 import Section from "../../containers/Section";
 
-export function HomePage() {
+export function PeoplePage() {
   const { setMainStyle } = useContext(MainContext);
   useEffect(() => setMainStyle("white"), [setMainStyle]);
 
   return (
     <>
       <Section>
-        Home Page
+        People Page
       </Section>
     </>
   );
