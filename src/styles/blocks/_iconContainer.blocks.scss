@@ -23,10 +23,11 @@
     }
     &__apple{
         background-color: $c-white;
+        color: $c-gray-100;
         font-size: 4rem;
     }
     &__text{
-        margin-bottom: 2rem;
+        margin-bottom: 3rem;
         color: $c-blue-75;
         font-size: 1.6rem;
         font-weight: $-f-semi;

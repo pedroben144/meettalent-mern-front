@@ -14,12 +14,18 @@ export default function Step1(props){
     const {register, handleSubmit,errors} = useForm()
 
     const {setMainStyle} = useContext(MainContext);
-    setMainStyle("white");
+    setMainStyle("bottom");
+
 
     const doSubmit = (data) => {
         console.log(data);
         props.changeStep();
+        
     }
+
+
+
+
 
     return( 
         <>
@@ -28,11 +34,11 @@ export default function Step1(props){
                 <IconContainer/>
                 <form className="formStep1 formStep1__text" >
                     <label><p>¿Tienes otro correo electrónico?</p> 
-                    <input className="input input--white" type="email" name="email" ref={register}  placeholder="Correo electrónico"/>
+                    <input className="input input--white" type="email" name="email" ref={register({required:true})}  placeholder="Correo electrónico"/>
                     </label>
-                    {errors.email && <span>Email is required</span>}
+                    {errors.email && <span className="formStep1__errorText">Email es obligatorio</span>}
                 </form>
-                <MainWButton blue fn={handleSubmit(doSubmit)}>Continuar</MainWButton>
+                <MainWButton bottom fn={handleSubmit(doSubmit)}>Continuar</MainWButton>
                 
                 
                 

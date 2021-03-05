@@ -33,10 +33,19 @@
     }
     &__span{
         position: absolute;
-        margin-top: 1.8rem;
+        bottom: 25px;
+        transform: translate(-40px, 50%);
         font-size: 3rem;
     }
     &__labelText{
         margin-left: 0.8rem;
     }
+    &__label{
+        position: relative;
+    }
+    &__errorText{
+        margin-top: 0.5rem;
+        font-size: 1.2rem;
+    }
 }
+

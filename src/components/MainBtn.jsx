@@ -18,6 +18,9 @@ export default function MainWButton(props) {
             case 'logo':
                 className += ' main-btn--blue';
                 break;
+            case 'bottom':
+                className += ' main-btn--bottom';
+                break;
             default:
                 break;
         }
