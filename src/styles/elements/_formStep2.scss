@@ -1,0 +1,42 @@
+.formStep2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &__text{
+        color: $c-blue-75;
+        font-size: 1.6rem;
+        font-weight: $-f-semi;
+    }
+    &__containerCheckbox{
+        width: 80%;
+        display: flex;
+    }
+    &__checkbox{
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 10rem;
+        margin-top: 1.8rem;
+        margin-right: 2rem;
+    }
+    &__checkbox--text{
+        font-weight: $-f-medium;
+        line-height: 2.5rem;
+        font-size: 1.5rem;
+        width: 100%;
+
+    }
+    &__link{
+        text-decoration: none;
+        color: $c-cyan;
+
+    }
+    &__span{
+        position: absolute;
+        margin-top: 1.8rem;
+        font-size: 3rem;
+    }
+    &__labelText{
+        margin-left: 0.8rem;
+    }
+}

@@ -26,7 +26,7 @@ export default function MainWButton(props) {
     }
 
     return (
-        <button className={getClassName()}>
+        <button className={getClassName()} onClick={props.fn}>
             {props.children} 
         </button>
     )
