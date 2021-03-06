@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Header from '../../../containers/Header';
 import Section from '../../../containers/Section';
 import { useForm } from 'react-hook-form';
@@ -7,7 +7,9 @@ import { MainContext } from '../../../contexts/MainContext';
 import { Link } from 'react-router-dom';
 import { FiEye } from "react-icons/fi";
 
+
 export default function Step2(props){
+    const [correctPassword,setCorrectPassword] = useState();
     const {register,handleSubmit,reset,errors} = useForm();
 
     const {setMainStyle} = useContext(MainContext);
@@ -15,8 +17,25 @@ export default function Step2(props){
 
     const doSubmit = (data) => {
         console.log(data);
-        reset();
-        props.changeStep();
+        
+        if(correctPassword){
+            reset();
+            props.changeStep();
+        }
+        
+    }
+
+    const checkPassword = () => {
+
+        const showPass = document.querySelector('#password1').value;
+        const showPass2 = document.querySelector('#password2').value;
+
+        if(showPass === showPass2){
+            setCorrectPassword(true);
+        }else{
+            setCorrectPassword(false);
+        }
+
     }
 
     
@@ -58,7 +77,7 @@ export default function Step2(props){
                     </label>
                     {errors.nif && <span className="formStep2__errorText">NIF obligatorio</span>}
                     <label><p className="formStep2__labelText">Email ID</p>
-                        <input className="input input--white" type="email" name="email" placeholder="Email ID"  ref={register({required:true})}/>
+                        <input className="input input--white" type="email" name="email" placeholder="Email ID"  ref={register({required:true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })}/>
                     </label>
                     {errors.email && <span className="formStep2__errorText">Email obligatorio</span>}
                     <label className="formStep2__label"><p className="formStep2__labelText">Contraseña</p>
@@ -67,13 +86,13 @@ export default function Step2(props){
                     </label>
                     {errors.password1 && <span className="formStep2__errorText">La contraseña es obligatoria</span>}
                     <label className="formStep2__label"><p className="formStep2__labelText">Confirmar contraseña</p>
-                        <input className="input input--white" type="password" name="password2" id="password2" placeholder="Contraseña" ref={register({required:true})}/>
+                        <input className="input input--white" type="password" name="password2" id="password2" placeholder="Contraseña" onChange={checkPassword} ref={register({required:true})}/>
                         <span className="formStep2__span" onClick={showPassword}><FiEye/></span>
                     </label>
                     {errors.password2 && <span className="formStep2__errorText">Repetir contraseña</span>}
+                    {correctPassword===false && <span className="formStep2__errorText">Las contraseñas no coinciden</span> }
                     <div className="formStep2__containerCheckbox">
                     
-                        
                         <input className="formStep2__checkbox"  type="checkbox" name="accept"  ref={register({required:true})}></input>
                         <p className="formStep2__checkbox--text">Al crear una cuenta, acepta automáticamente todos los <Link to="/" className="formStep2__link">términos y condiciones</Link> relacionados con <Link to="/" className="formStep2__link">meeTTalent</Link></p>
                         
