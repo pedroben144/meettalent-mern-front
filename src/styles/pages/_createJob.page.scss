@@ -1,0 +1,54 @@
+.c-createJob-step1{
+    &__ul{
+        list-style: none;
+        padding: 0;
+       padding-bottom: 5%;
+        border-bottom: solid $c-gray-100 1px;
+    
+    }
+    &__input{
+        display: flex;
+        align-items: center;
+        margin-bottom: 6%;
+        font-size: 1.4rem;
+        font-weight: $-f-bold;
+    
+        
+    }
+    &__form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__link-text{
+        color:$c-green-dark;
+        text-decoration: none;
+        font-size: 1.8rem;
+    }
+    &__link{
+        text-decoration: none;
+    }
+    &__icon-container{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__label{
+        position: relative;
+    }
+    &__label-text{
+        margin-bottom: 3.5rem;
+    }
+    
+    &__icon{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 2.5rem;
+        color: black;
+      
+    }
+    
+    
+    
+}

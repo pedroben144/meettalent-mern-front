@@ -10,7 +10,7 @@ export function LoginPage() {
   const { setMainStyle } = useContext(MainContext);
   useEffect(() => setMainStyle("blue"), [setMainStyle]);
 
-  const { register, handleSubmit, watch, errors, reset } = useForm();
+  const { register, handleSubmit, errors, reset } = useForm();
 
   const doSubmit = (data) => {
     console.log(data);

@@ -18,6 +18,13 @@ export default function MainWrapper(props) {
             case 'logo':
                 className += ' main--blue main--logo';
                 break;
+            case 'bottom':
+                className += ' main--bottom';
+                break;
+            case 'blue-rectangle':
+                className += ' main--blue-rectangle';
+                break;
+                
             default:
                 break;
         }

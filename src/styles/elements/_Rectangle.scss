@@ -1,9 +1,13 @@
 .rectangle{
     height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     &--blue{    
-        margin-top: 11rem;
-        background-color: rgb(13, 32, 42);
+        background-color: $c-blue-100;
         border-radius: 20px 20px 0 0;
+        color: $c-white;
     }
     &--white{
         margin-top: 28rem;
