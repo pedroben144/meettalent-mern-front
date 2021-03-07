@@ -8,6 +8,7 @@ import { ProfilePage } from "../pages/ProfilePage/ProfilePage";
 import { RecoverPage } from "../pages/RecoverPage/RecoverPage";
 import { SignupPage } from "../pages/SignupPage/SignupPage";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
+import { SearchPage } from "../pages/SearchPage/SearchPage";
 
 export function Routes() {
   return (
@@ -31,7 +32,7 @@ export function Routes() {
         <PeoplePage />
       </Route>
       <Route path="/search">
-        <p>SearchPage</p>
+        <SearchPage />
       </Route>
       <Route path="/recover">
         <RecoverPage />
