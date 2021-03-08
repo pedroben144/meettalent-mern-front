@@ -1,0 +1,32 @@
+.start-up{
+    background-color: rgb(13, 32, 42);
+    height: 100vh;
+    display: block;
+    position: relative;
+    opacity: 1;
+    animation: fadeOut 1s forwards 2s;
+    &__container{
+        margin: 0;
+        position: absolute;
+        top: 48%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);    
+    }
+    &__logo{
+        width: 20%;
+        display: block;
+        margin: auto;
+    }
+    &__logo-text{
+        width: 65%;
+        display: block;
+        margin: auto;
+        margin-top: 25px;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
