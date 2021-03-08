@@ -18,14 +18,14 @@ export default function Step2(props){
         console.log(data);
     }
 
- const countCharacters = (e) =>{
-    const contador = document.getElementById('contador');
-    const target = e.target;
-    const longitudAct = target.value.length;
-    contador.innerHTML = `${longitudAct}/450`;
+    const countCharacters = (e) =>{
+        const contador = document.getElementById('contador');
+        const target = e.target;
+        const longitudAct = target.value.length;
+        contador.innerHTML = `${longitudAct}/450`;
 
 
- }
+    }
  
 
 
