@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { CgSearch } from "react-icons/cg";
+import { BiSearch } from "react-icons/bi";
 import { BsCheck } from "react-icons/bs";
 import { useHistory } from "react-router-dom";
 import Header from "../../containers/Header";
@@ -8,73 +8,51 @@ import Header from "../../containers/Header";
 import Section from "../../containers/Section";
 import { MainContext } from "../../contexts/MainContext";
 import MainWButton from "../../components/MainBtn";
+import { SearchContext } from "../../contexts/SearchContext";
 
 export function SearchPage() {
   const { setMainStyle } = useContext(MainContext);
   useEffect(() => setMainStyle("white"), [setMainStyle]);
 
-  const [submitError, setSubmitError] = useState(false);
+  const { setSearchValue } = useContext(SearchContext);
 
-  const { register, handleSubmit, watch, errors, reset } = useForm();
+  const [submitError, setSubmitError] = useState(false);
+  const [offers, setOffers] = useState(false);
+  const [candidates, setCandidates] = useState(false);
+
+  const { register, handleSubmit, reset } = useForm();
 
   let history = useHistory();
 
-  let offers = false;
-  let candidates = false;
-  // let submitError = false;
+  const handleOfferBtn = () => {
+    setOffers(true);
+    setCandidates(false);
+  }
+
+  const handleCandidatesBtn = () => {
+    setOffers(false);
+    setCandidates(true);
+  }
 
   const doSubmit = (data) => {
     if (!offers && !candidates) {
       setSubmitError(true);
     } else {
       console.log(data);
-      reset(); //Borra los valores de los inputs cuando el form es válido y se ha enviado
+      setSearchValue(data.search);
+      reset();
       setSubmitError(false);
+      if (offers) {
+        history.push('jobs');
+      }
+      if (candidates) {
+        history.push('people');
+      }
     }
-    console.log(
-      `submitError: ${submitError}, offers: ${offers}, candidates: ${candidates}`
-    );
   };
 
   const goBack = () => {
     history.push("/home");
-  };
-
-  const $$offers = document.querySelector(`[data-function=offers]`);
-  const $$candidates = document.querySelector(`[data-function=candidates]`);
-  const offersIcon = document.querySelector(`[data-function=offers-icon]`);
-  const candidatesIcon = document.querySelector(
-    `[data-function=candidates-icon]`
-  );
-
-  const filterByOffers = () => {
-    offers = offers ? false : true;
-    if (offers === true) {
-      $$offers.classList.add("c-search-page__filter-text--selected");
-      offersIcon.classList.add("c-search-page__check-icon--show");
-      $$candidates.classList.remove("c-search-page__filter-text--selected");
-      candidatesIcon.classList.remove("c-search-page__check-icon--show");
-      candidates = false;
-    } else {
-      $$offers.classList.remove("c-search-page__filter-text--selected");
-      offersIcon.classList.remove("c-search-page__check-icon--show");
-      candidates = false;
-    }
-  };
-
-  const filterByCandidates = () => {
-    candidates = candidates ? false : true;
-    if (candidates === true) {
-      $$candidates.classList.add("c-search-page__filter-text--selected");
-      candidatesIcon.classList.add("c-search-page__check-icon--show");
-      $$offers.classList.remove("c-search-page__filter-text--selected");
-      offersIcon.classList.remove("c-search-page__check-icon--show");
-      offers = false;
-    } else {
-      $$candidates.classList.remove("c-search-page__filter-text--selected");
-      candidatesIcon.classList.remove("c-search-page__check-icon--show");
-      offers = false;
-    }
   };
 
   return (
@@ -83,18 +61,10 @@ export function SearchPage() {
       <Section>
         <div className="c-search-page">
           <form onSubmit={handleSubmit(doSubmit)}>
-            <div className="c-search-page__input-cont">
-              <label htmlFor="search" className="c-search-page__icon-cont">
-                <CgSearch className="c-search-page__search-icon" />
-              </label>
-              <input
-                id="search"
-                name="search"
-                className="c-search-page__input"
-                placeholder="Buscar"
-                ref={register()}
-              />
-            </div>
+          <div className="home__header">
+            <input className="input input--search" type="text" placeholder="Search" id="search" name="search" ref={register()} />
+            <div className="input input--search--icon"><BiSearch /></div>
+          </div>
             {submitError && (
               <span className="c-search-page__error-message">
                 Debe indicar un filtro: ofertas o candidatos/perfiles
@@ -110,32 +80,30 @@ export function SearchPage() {
               name="candidates"
               data-function="candidates-input"
             />
-
-            {/* <div> */}
             <div
               className="c-search-page__filter-cont c-search-page__filter-cont--margin1"
-              onClick={filterByOffers}
+              onClick={handleOfferBtn}
             >
-              <p className="c-search-page__filter-text" data-function="offers">
+              <p className={`c-search-page__filter-text ${offers && 'c-search-page__filter-text--selected'}`} data-function="offers">
                 Ofertas
               </p>
               <BsCheck
-                className="c-search-page__check-icon"
+                className={`c-search-page__check-icon ${offers && 'c-search-page__check-icon--show'}`}
                 data-function="offers-icon"
               />
             </div>
             <div
               className="c-search-page__filter-cont c-search-page__filter-cont--margin2"
-              onClick={filterByCandidates}
+              onClick={handleCandidatesBtn}
             >
               <p
-                className="c-search-page__filter-text"
+                className={`c-search-page__filter-text ${candidates && 'c-search-page__filter-text--selected'}`}
                 data-function="candidates"
               >
                 Candidatos/perfiles
               </p>
               <BsCheck
-                className="c-search-page__check-icon"
+                className={`c-search-page__check-icon ${candidates && 'c-search-page__check-icon--show'}`}
                 data-function="candidates-icon"
               />
             </div>
@@ -143,7 +111,6 @@ export function SearchPage() {
               <MainWButton>Buscar</MainWButton>
             </div>
           </form>
-          {/* </div> */}
         </div>
       </Section>
     </>

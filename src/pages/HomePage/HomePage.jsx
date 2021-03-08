@@ -1,18 +1,23 @@
 import React, { useContext, useEffect } from "react";
 import { BiSearch } from 'react-icons/bi';
-import { FiUnlock, FiLock, FiUser, FiEyeOff, FiEye, FiMapPin } from 'react-icons/fi';
+import { FiUnlock, FiUser, FiEyeOff, FiMapPin } from 'react-icons/fi';
 
 import { MainContext } from "../../contexts/MainContext";
 import Header from "../../containers/Header";
 import Section from "../../containers/Section";
 import { FooterContext } from "../../contexts/FooterContext";
+import { useHistory } from "react-router";
 
 export function HomePage() {
 
   const { setMainStyle } = useContext(MainContext);
   const { setFooter } = useContext(FooterContext);
 
+  let history = useHistory();
 
+  const goSearch = () => {
+    history.push('/search')
+  }
 
 
   useEffect(() => setMainStyle("white"), [setMainStyle]);
@@ -26,7 +31,7 @@ export function HomePage() {
       </Header>
       <Section>
           <div className="home__header">
-            <input className="input input--search" type="text" placeholder="Search" />
+            <input className="input input--search" onClick={goSearch} type="text" placeholder="Search" />
             <div className="input input--search--icon"><BiSearch /></div>
           </div>
           <div className="home__content">
