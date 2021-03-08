@@ -9,6 +9,7 @@ export default function Rectangle(props) {
 
         if (props.hasOwnProperty('blue')) result += ' rectangle--blue';
         if (props.hasOwnProperty('white')) result += ' rectangle--white';
+        if (props.active) result += ' rectangle--active'
 
         setClassName(result);
     }
