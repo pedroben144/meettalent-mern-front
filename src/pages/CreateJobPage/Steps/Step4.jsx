@@ -20,10 +20,10 @@ export default function Step4(props){
     }
 
     const countCharacters = (e) =>{
-        const contador = document.getElementById('contador');
+        const counter = document.getElementById('counter');
         const target = e.target;
         const longitudAct = target.value.length;
-        contador.innerHTML = `${longitudAct}/450`;
+        counter.innerHTML = `${longitudAct}/450`;
 
 
     }
@@ -38,7 +38,7 @@ export default function Step4(props){
                     <label className="c-createJob-step4__label" >
                         <p className="c-createJob-step4__label-text">Descripción de los requisitos</p><AiOutlineEdit className="c-createJob-step4__icon-edit"/>
                         <textarea className="c-createJob-step4__textarea" id="textarea" name="description" ref={register({maxLength:450})} placeholder="Descripción..." onInput={countCharacters} />
-                        <div className="c-createJob-step4__counter" id="contador"></div>
+                        <div className="c-createJob-step4__counter" id="counter"></div>
                     </label>
                     <label className="c-createJob-step4__label c-createJob-step4__label--border" >
                         <select className="input input--white c-createJob-step4__select-questions" type="select" name="questions" ref={register}>

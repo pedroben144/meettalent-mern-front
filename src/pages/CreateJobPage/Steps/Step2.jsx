@@ -19,10 +19,10 @@ export default function Step2(props){
     }
 
     const countCharacters = (e) =>{
-        const contador = document.getElementById('contador');
+        const counter = document.getElementById('counter');
         const target = e.target;
         const longitudAct = target.value.length;
-        contador.innerHTML = `${longitudAct}/450`;
+        counter.innerHTML = `${longitudAct}/450`;
 
 
     }
@@ -85,7 +85,7 @@ export default function Step2(props){
                 <label className="c-createJob-step2__label" >
                     <p className="c-createJob-step2__label-text">Descripción de la oferta</p><AiOutlineEdit className="c-createJob-step2__icon-edit"/>
                     <textarea className="c-createJob-step2__textarea" id="textarea" name="description" ref={register({maxLength:450})} placeholder="Descripción..." onInput={countCharacters} />
-                    <div className="c-createJob-step2__counter" id="contador"></div>
+                    <div className="c-createJob-step2__counter" id="counter"></div>
                 </label>
             </form>
             <MainWButton fn={handleSubmit(doSubmit)}>Continuar</MainWButton>
