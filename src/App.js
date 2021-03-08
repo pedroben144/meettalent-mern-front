@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { MainContext } from "./contexts/MainContext";
+import { SearchContext } from "./contexts/SearchContext";
 import { FooterContext } from "./contexts/FooterContext";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Routes } from "./components/Routes";
@@ -18,6 +19,7 @@ function App() {
   const [ mainStyle, setMainStyle ] = useState('blue');
   const [ footer, setFooter ] = useState(false);
   const [ startLoader, setStartLoader ] = useState(false);
+  const [ searchValue, setSearchValue ] = useState('');
 
   useEffect(fixHeight, []);
   useEffect(() => {setTimeout(() => setStartLoader(false), 3000)}, []);
@@ -25,13 +27,15 @@ function App() {
   return (
     <Router>
       <MainContext.Provider value={{ mainStyle, setMainStyle }}>
-        <FooterContext.Provider value={{ setFooter }}>
-          <MainWrapper>
-            {startLoader && <StartUp />}
-            {startLoader === false && <Routes/>}
-            {footer && <Footer />}
-          </MainWrapper>
-        </FooterContext.Provider>
+        <SearchContext.Provider value={{ searchValue, setSearchValue }}>
+          <FooterContext.Provider value={{ setFooter }}>
+            <MainWrapper>
+              {startLoader && <StartUp />}
+              {startLoader === false && <Routes/>}
+              {footer && <Footer />}
+            </MainWrapper>
+          </FooterContext.Provider>
+        </SearchContext.Provider>
       </MainContext.Provider>
     </Router>
   );

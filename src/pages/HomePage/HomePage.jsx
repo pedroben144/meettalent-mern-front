@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { BiSearch } from 'react-icons/bi';
-import { FiUnlock, FiLock, FiUser, FiEyeOff, FiEye, FiMapPin } from 'react-icons/fi';
+import { FiUnlock, FiUser, FiEyeOff, FiMapPin } from 'react-icons/fi';
 
 import { MainContext } from "../../contexts/MainContext";
 import Header from "../../containers/Header";

@@ -8,10 +8,13 @@ import Header from "../../containers/Header";
 import Section from "../../containers/Section";
 import { MainContext } from "../../contexts/MainContext";
 import MainWButton from "../../components/MainBtn";
+import { SearchContext } from "../../contexts/SearchContext";
 
 export function SearchPage() {
   const { setMainStyle } = useContext(MainContext);
   useEffect(() => setMainStyle("white"), [setMainStyle]);
+
+  const { setSearchValue } = useContext(SearchContext);
 
   const [submitError, setSubmitError] = useState(false);
   const [offers, setOffers] = useState(false);
@@ -36,12 +39,16 @@ export function SearchPage() {
       setSubmitError(true);
     } else {
       console.log(data);
+      setSearchValue(data.search);
       reset();
       setSubmitError(false);
+      if (offers) {
+        history.push('jobs');
+      }
+      if (candidates) {
+        history.push('people');
+      }
     }
-    console.log(
-      `submitError: ${submitError}, offers: ${offers}, candidates: ${candidates}`
-    );
   };
 
   const goBack = () => {
