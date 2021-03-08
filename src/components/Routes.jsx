@@ -9,6 +9,7 @@ import { RecoverPage } from "../pages/RecoverPage/RecoverPage";
 import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
 import { SearchPage } from "../pages/SearchPage/SearchPage";
+import { CreatePage } from "../pages/CreatePage/CreatePage";
 
 export function Routes() {
   return (
@@ -23,7 +24,7 @@ export function Routes() {
         <p>CreateJobPage</p>
       </Route>
       <Route path="/create">
-        <p>CreatePage</p>
+        <CreatePage />
       </Route>
       <Route path="/people/:idPeople">
         <p>PeoplePageDetail</p>

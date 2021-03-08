@@ -26,7 +26,7 @@ export function HomePage() {
   return (
     <>
       <Header>
-        <img className="home__logo" src="/assets/images/logo-blue.png" alt="logo" />
+        <img className="header__logo" src="/assets/images/logo-blue.png" alt="logo" />
         
       </Header>
       <Section>
