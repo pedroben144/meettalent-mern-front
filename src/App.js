@@ -13,8 +13,6 @@ import StartUp from "./components/StartUp";
 
 
 
-
-
 function App() {
 
   const [ mainStyle, setMainStyle ] = useState('blue');

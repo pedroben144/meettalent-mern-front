@@ -1,9 +1,9 @@
-.input {
-  width: 38rem;
-  height: 6.3rem;
-  border-radius: 8px;
-  outline: 0;
-  // text-align: center;
+.input{
+    position: relative;
+    width: 38rem;
+    height: 6.3rem;
+    border-radius: 8px;
+    outline: 0;
 
   &--blue {
     background-color: rgb(216, 238, 248);
