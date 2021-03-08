@@ -1,0 +1,93 @@
+.home {
+    &__logo {
+        max-width: 120px;
+    }
+
+    &__header {
+        position: relative;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        
+        &__title {
+            color: $c-blue-75;
+            font-weight: $-f-semi;
+            font-size: 2rem;
+        }
+    }
+}
+
+.card {
+    & > * {
+        margin: 0;
+    }
+
+    position: relative;
+    background-color: $c-white;
+    border-radius: 1rem;
+    box-shadow: 0px 4px 30px 0px $c-gray-50;
+    padding: 2rem;
+    width: 90%;
+
+    &__date {
+        color: $c-gray-75;
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    &__title {
+        position: relative;
+        font-size: 2.8rem;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: $-f-bold;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            border-bottom: 1px solid $c-gray-50;
+        }
+    }
+
+    &__status {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.8rem;
+
+        &__item {
+            display: flex;
+            align-items: center;
+            line-height: 3rem;
+
+            &--text{
+                padding-left: 0.5rem;
+            }
+
+            &:nth-child(2) {
+                font-size: 2.1rem;
+                & > :first-child {
+                    padding-right: 0.5rem;
+                    font-size: 1.8rem;
+                }
+            }
+
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        font-size: 3rem;
+        color: $c-cyan;
+    }
+}

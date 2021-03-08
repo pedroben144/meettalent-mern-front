@@ -27,4 +27,7 @@
             transform: rotate(20deg);
         }
     }
+    &--bottom{
+        background-color: $c-gray-25;
+    }
 }

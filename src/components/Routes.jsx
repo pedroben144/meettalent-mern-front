@@ -6,7 +6,7 @@ import { HomePage } from "../pages/HomePage/HomePage";
 import { PeoplePage } from "../pages/PeoplePage/PeoplePage";
 import { ProfilePage } from "../pages/ProfilePage/ProfilePage";
 import { RecoverPage } from "../pages/RecoverPage/RecoverPage";
-import { SignupPage } from "../pages/SignupPage/SignupPage";
+import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
 import { SearchPage } from "../pages/SearchPage/SearchPage";
 
@@ -38,7 +38,7 @@ export function Routes() {
         <RecoverPage />
       </Route>
       <Route path="/signup">
-        <SignupPage />
+        <SignUpPage />
       </Route>
       <Route path="/login">
         <LoginPage />

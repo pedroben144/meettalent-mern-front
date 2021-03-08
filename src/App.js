@@ -13,13 +13,11 @@ import StartUp from "./components/StartUp";
 
 
 
-
-
 function App() {
 
   const [ mainStyle, setMainStyle ] = useState('blue');
   const [ footer, setFooter ] = useState(false);
-  const [ startLoader, setStartLoader ] = useState(true);
+  const [ startLoader, setStartLoader ] = useState(false);
 
   useEffect(fixHeight, []);
   useEffect(() => {setTimeout(() => setStartLoader(false), 3000)}, []);

@@ -1,0 +1,24 @@
+.register-step3-container{
+    
+    &__image{
+        margin-top: 8rem;
+        margin-bottom: 0;
+        width: 34rem;
+    }
+    &__h1{
+        font-size: 4.5rem;
+        margin-bottom: 0.5;
+        }
+    &__p1{
+        margin-top: 0;
+        font-size: 21px;
+        font-weight: 400;
+        margin-bottom: 1rem;
+    }
+    &__p2{
+        margin-top: 1rem;
+        font-size: 21px;
+        font-weight: 400;
+        margin-bottom: 0;   
+    }
+}
