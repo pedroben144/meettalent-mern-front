@@ -6,6 +6,7 @@ import Section from '../../../containers/Section';
 import { MainContext } from '../../../contexts/MainContext';
 import { AiOutlineEdit } from "react-icons/ai";
 import { FiChevronDown } from "react-icons/fi";
+import { CreateJobContext } from '../../../contexts/CreateJobContext';
 
 
 export default function Step2(props){
@@ -14,9 +15,13 @@ export default function Step2(props){
     const {setMainStyle} = useContext(MainContext);
     setMainStyle("bottom");
 
+    const {formData,setFormData} = useContext(CreateJobContext);
+
     const doSubmit = (data) => {
-        console.log(data);
+        const newFormData = {...formData, ...data};
+        setFormData(newFormData);
         props.changeStep();
+        console.log(newFormData);
     }
 
     const countCharacters = (e) =>{

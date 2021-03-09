@@ -7,6 +7,7 @@ import Rectangle from '../../../containers/Rectangle';
 import Section from '../../../containers/Section';
 import { MainContext } from '../../../contexts/MainContext';
 import { AiOutlineEdit } from "react-icons/ai";
+import { CreateJobContext } from '../../../contexts/CreateJobContext';
 
 
 export default function Step1(props){
@@ -15,9 +16,12 @@ export default function Step1(props){
     const {setMainStyle} = useContext(MainContext);
     setMainStyle('blue-rectangle');
 
+    const{setFormData} = useContext(CreateJobContext)
+
     const doSubmit = (data) => {
         console.log(data);
         props.changeStep();
+        setFormData(data);
     }
 
 
@@ -37,7 +41,7 @@ export default function Step1(props){
                     <form className="c-createJob-step1__form" >
                         <label className="c-createJob-step1__label">
                         <p className="c-createJob-step1__label-text">Titulo de la nueva oferta</p><AiOutlineEdit className="c-createJob-step1__icon"/>
-                            <input className="input input--blue"  type="text" name="jobTitle" ref={register({required:true})} placeholder="Escribe el título..." />
+                            <input className="input input--blue c-createJob-step1__input c-createJob-step1__input--grey"  type="text" name="jobTitle" ref={register({required:true})} placeholder="Escribe el título..." />
                         </label>
                         <Link to="/" className="c-createJob-step1__link" ><p className="c-createJob-step1__link-text">¿Como crear un título efectivo?</p></Link>
                     </form>

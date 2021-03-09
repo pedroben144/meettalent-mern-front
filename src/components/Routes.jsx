@@ -8,9 +8,8 @@ import { ProfilePage } from "../pages/ProfilePage/ProfilePage";
 import { RecoverPage } from "../pages/RecoverPage/RecoverPage";
 import { SignupPage } from "../pages/SignupPage/SignupPage";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
-import Step7 from "../pages/CreateJobPage/Steps/Step7";
 import CreateJobPage from "../pages/CreateJobPage/CreateJobPage";
-import Step6 from "../pages/CreateJobPage/Steps/Step6";
+
 
 
 export function Routes() {
@@ -23,13 +22,7 @@ export function Routes() {
         <p>CreateJobPage</p>
       </Route>
       <Route path="/create/job">
-        {/* <Step1/> */}
-        {/* <Step2/> */}
-        {/* <Step4/> */}
-        {/* <Step5/> */}
-        <Step6/>
-        {/* <Step7/> */}
-        {/* <CreateJobPage/> */}
+        <CreateJobPage/>
       </Route>
       <Route path="/create">
         <p>CreatePage</p>

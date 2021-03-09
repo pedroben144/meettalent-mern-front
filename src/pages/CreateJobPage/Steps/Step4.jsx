@@ -7,6 +7,7 @@ import { MainContext } from '../../../contexts/MainContext';
 import { AiOutlineEdit } from "react-icons/ai";
 import { FiChevronDown } from "react-icons/fi";
 import MainWButton from '../../../components/MainBtn';
+import { CreateJobContext } from '../../../contexts/CreateJobContext';
 
 
 export default function Step4(props){
@@ -15,8 +16,12 @@ export default function Step4(props){
     const {setMainStyle} = useContext(MainContext);
     setMainStyle('bottom');
 
+    const {formData,setFormData} = useContext(CreateJobContext);
+
     const doSubmit = (data) => {
-        console.log(data);
+        const newFormData = {...formData, ...data};
+        setFormData(newFormData);
+        console.log(newFormData);
         props.changeStep();
     }
 
@@ -38,7 +43,7 @@ export default function Step4(props){
                     <h5 className="c-createJob-step4__h5">Requisitos de candidato</h5>
                     <label className="c-createJob-step4__label" >
                         <p className="c-createJob-step4__label-text">Descripción de los requisitos</p><AiOutlineEdit className="c-createJob-step4__icon-edit"/>
-                        <textarea className="c-createJob-step4__textarea" id="textarea" name="description" ref={register({maxLength:450})} placeholder="Descripción..." onInput={countCharacters} />
+                        <textarea className="c-createJob-step4__textarea" id="textarea" name="descriptionCandidate" ref={register({maxLength:450})} placeholder="Descripción..." onInput={countCharacters} />
                         <div className="c-createJob-step4__counter" id="counter"></div>
                     </label>
                     <label className="c-createJob-step4__label c-createJob-step4__label--border" >
