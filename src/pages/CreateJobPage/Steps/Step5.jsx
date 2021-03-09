@@ -10,6 +10,8 @@ import MainWButton from '../../../components/MainBtn';
 export default function Step5 (props) {
     const {setMainStyle} = useContext(MainContext);
     setMainStyle('bottom');
+
+    
     return(
         <>
             <Header goBack>Multiposting</Header>
