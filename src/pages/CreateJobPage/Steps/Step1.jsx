@@ -17,6 +17,7 @@ export default function Step1(props){
 
     const doSubmit = (data) => {
         console.log(data);
+        props.changeStep();
     }
 
 

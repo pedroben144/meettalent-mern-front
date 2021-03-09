@@ -11,15 +11,19 @@ export default function Step5 (props) {
     const {setMainStyle} = useContext(MainContext);
     setMainStyle('bottom');
 
-    
+    const changeStep = () => {
+        props.changeStep();
+    }
+
+
     return(
         <>
-            <Header goBack>Multiposting</Header>
+            <Header goBack fn={props.goBackPage}>Multiposting</Header>
             <Section>
                 <EmploymentIcons/>  
                 <RoundBtn plusBig/>
                 <SocialIcons/>
-                <MainWButton>Continuar</MainWButton>
+                <MainWButton fn={changeStep}>Continuar</MainWButton>
             </Section>
         
 

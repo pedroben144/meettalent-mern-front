@@ -9,6 +9,7 @@ import { RecoverPage } from "../pages/RecoverPage/RecoverPage";
 import { SignupPage } from "../pages/SignupPage/SignupPage";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
 import Step7 from "../pages/CreateJobPage/Steps/Step7";
+import CreateJobPage from "../pages/CreateJobPage/CreateJobPage";
 // import Step4 from "../pages/CreateJobPage/Steps/Step4";
 //import Step5 from "../pages/CreateJobPage/Steps/Step5";
 // import Step2 from "../pages/CreateJobPage/Steps/Step2";
@@ -28,7 +29,8 @@ export function Routes() {
         {/* <Step2/> */}
         {/* <Step4/> */}
         {/* <Step5/> */}
-        <Step7/>
+        {/* <Step7/> */}
+        <CreateJobPage/>
       </Route>
       <Route path="/create">
         <p>CreatePage</p>

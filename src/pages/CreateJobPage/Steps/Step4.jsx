@@ -17,6 +17,7 @@ export default function Step4(props){
 
     const doSubmit = (data) => {
         console.log(data);
+        props.changeStep();
     }
 
     const countCharacters = (e) =>{
@@ -31,7 +32,7 @@ export default function Step4(props){
 
     return(
         <>
-            <Header goBack> Descripción de la oferta</Header>
+            <Header goBack fn={props.goBackPage}> Descripción de la oferta</Header>
             <Section>
                 <form className="c-createJob-step4__form" >
                     <h5 className="c-createJob-step4__h5">Requisitos de candidato</h5>
