@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Header from '../../../containers/Header';
 import Section from '../../../containers/Section';
 import { useForm } from 'react-hook-form';
@@ -6,6 +6,7 @@ import MainWButton from '../../../components/MainBtn';
 import { MainContext } from '../../../contexts/MainContext';
 import { Link } from 'react-router-dom';
 import { FiEye } from "react-icons/fi";
+import axios from 'axios';
 
 
 export default function Step2(props){
@@ -13,20 +14,30 @@ export default function Step2(props){
     const {register,handleSubmit,reset,errors} = useForm();
 
     const {setMainStyle} = useContext(MainContext);
-    setMainStyle("bottom");
+    useEffect(() => setMainStyle("bottom"), [setMainStyle]);
 
     const doSubmit = (data) => {
-        console.log(data);
-        
         if(correctPassword){
-            reset();
-            props.changeStep();
+            let newUser = {
+                "email": data.email,
+                "name": data.companysName,
+                "password": data.password1,
+                "nif": data.nif
+            }
+            // console.log(data);
+            axios.post(process.env.REACT_APP_BASE_URL + '/register', newUser)
+            .then(function(res) {
+                console.log(res);
+                reset();
+                props.changeStep();
+            })
+            .catch(function(err) {
+                console.log(err);
+            })
         }
-        
     }
 
     const checkPassword = () => {
-
         const showPass = document.querySelector('#password1').value;
         const showPass2 = document.querySelector('#password2').value;
 
@@ -35,16 +46,11 @@ export default function Step2(props){
         }else{
             setCorrectPassword(false);
         }
-
     }
 
-    
-
     const showPassword = () =>{
-
         const showPass = document.querySelector('#password1');
         const showPass2 = document.querySelector('#password2');
-        console.log(showPass)
 
         if(showPass.type === "password"){
             showPass.type = "text";
@@ -56,10 +62,6 @@ export default function Step2(props){
         }else{
             showPass2.type = "password";
         }
-
-        
-
-
     }
 
 
@@ -77,7 +79,7 @@ export default function Step2(props){
                     </label>
                     {errors.nif && <span className="formStep2__errorText">NIF obligatorio</span>}
                     <label><p className="formStep2__labelText">Email ID</p>
-                        <input className="input input--white" type="email" name="email" placeholder="Email ID"  ref={register({required:true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })}/>
+                        <input defaultValue={props.mailValue} onChange={(e) => {props.setMail(e.target.value)}}  className="input input--white" type="email" name="email" placeholder="Email ID"  ref={register({required:true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })}/>
                     </label>
                     {errors.email && <span className="formStep2__errorText">Email obligatorio</span>}
                     <label className="formStep2__label"><p className="formStep2__labelText">Contraseña</p>
@@ -92,18 +94,12 @@ export default function Step2(props){
                     {errors.password2 && <span className="formStep2__errorText">Repetir contraseña</span>}
                     {correctPassword===false && <span className="formStep2__errorText">Las contraseñas no coinciden</span> }
                     <div className="formStep2__containerCheckbox">
-                    
                         <input className="formStep2__checkbox"  type="checkbox" name="accept"  ref={register({required:true})}></input>
                         <p className="formStep2__checkbox--text">Al crear una cuenta, acepta automáticamente todos los <Link to="/" className="formStep2__link">términos y condiciones</Link> relacionados con <Link to="/" className="formStep2__link">meeTTalent</Link></p>
-                        
                     </div>
-                    
                 </form>
             <MainWButton blue fn={handleSubmit(doSubmit)}>Continuar</MainWButton>
-                
             </Section>
-           
-
         </>
     );
 }

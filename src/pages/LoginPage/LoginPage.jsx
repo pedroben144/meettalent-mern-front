@@ -1,20 +1,39 @@
 import React, { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 import { MainContext } from "../../contexts/MainContext";
 import Section from "../../containers/Section";
 import MainWButton from "../../components/MainBtn";
+import axios from "axios";
+import { LoginContext } from "../../contexts/LoginContext";
 
 export function LoginPage() {
   const { setMainStyle } = useContext(MainContext);
   useEffect(() => setMainStyle("blue"), [setMainStyle]);
 
-  const { register, handleSubmit, watch, errors, reset } = useForm();
+  const { setIsLogged } = useContext(LoginContext);
+
+  const { register, handleSubmit, errors, reset } = useForm();
+
+  let history = useHistory();
 
   const doSubmit = (data) => {
-    console.log(data);
-    reset(); //Borra los valores de los inputs cuando el form es válido y se ha enviado
+    let User = {
+      "email": data.email,
+      "password": data.password
+    }
+    axios.post(process.env.REACT_APP_BASE_URL + "/login", User)
+    .then(function(res) {
+      localStorage.setItem('token', res.data.token);
+      localStorage.setItem('user', res.data.user);
+      setIsLogged(true);
+      history.push('/home');
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+    reset();
   };
 
   return (
