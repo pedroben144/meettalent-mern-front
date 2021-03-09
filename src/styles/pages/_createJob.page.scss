@@ -216,6 +216,76 @@
     
 }
 
+.c-createJob-step6{
+    &__form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__h5{
+        font-size: 1.8rem;
+        color:$c-blue-75;
+        margin:0;
+        margin-left: 3%;
+        
+    }
+    &__select{
+        padding: 0 1rem;
+        margin: 4% 0;
+        font-size: 1.5rem;
+        font-weight: $-f-medium;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+        
+    }
+    &__label{
+        position: relative;
+        &--border{
+            border-bottom: solid $c-gray-50 1px;
+        }
+        &--margin{
+            margin-top: 0.5rem;
+        }
+        
+    }
+    &__icon-select{
+        position: absolute;
+        bottom: 35px;
+        transform: translate(-40px, 50%);
+        font-size: 3rem;
+    }
+    &__icon-edit{
+        position: absolute;
+        right: 10px;
+        top: -10px;
+        font-size: 4rem;
+        padding-right:3% ;
+        color: $c-cyan;
+    }
+    &__textarea{
+        padding: 1rem;
+        height: 14rem;
+        width: 38rem;
+        border-radius: 8px;
+        outline: 0;
+        background-color: rgb(255, 255, 255);
+        border: 0.2rem solid rgb(228, 235, 239);
+        color: $c-gray-75;
+        font-size: 1.5rem;
+        font-weight: $-f-medium;
+        margin: 4% 0 0 0;
+    }
+    &__counter{
+        text-align: end;
+        color: $c-gray-50;
+        font-size: 1.4rem;
+        
+    }
+
+}
+
 .c-createJob-step7{
     &__container{
         width: 100%;
@@ -237,5 +307,6 @@
         text-align: center;
         line-height: 4.5rem;
     }
+   
     
 }

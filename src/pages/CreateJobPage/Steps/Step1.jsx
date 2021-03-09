@@ -37,7 +37,7 @@ export default function Step1(props){
                     <form className="c-createJob-step1__form" >
                         <label className="c-createJob-step1__label">
                         <p className="c-createJob-step1__label-text">Titulo de la nueva oferta</p><AiOutlineEdit className="c-createJob-step1__icon"/>
-                            <input className="input input--blue"  type="text" name="jobTitle" ref={register} placeholder="Escribe el título..." />
+                            <input className="input input--blue"  type="text" name="jobTitle" ref={register({required:true})} placeholder="Escribe el título..." />
                         </label>
                         <Link to="/" className="c-createJob-step1__link" ><p className="c-createJob-step1__link-text">¿Como crear un título efectivo?</p></Link>
                     </form>

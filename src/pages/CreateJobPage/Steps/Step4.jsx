@@ -53,16 +53,16 @@ export default function Step4(props){
                     </label>
                     <h5 className="c-createJob-step4__h5 c-createJob-step4__h5--key-word">Codificaciones internas</h5>
                     <label className="c-createJob-step4__label" >
-                    <select className="input input--white c-createJob-step4__select" type="select" name="keyWord" ref={register}>
-                        <option disable defaultValue>Añadir palabras clave</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                    <FiChevronDown className="c-createJob-step4__icon-select"/>
+                        <select className="input input--white c-createJob-step4__select" type="select" name="keyWord" ref={register}>
+                            <option disable defaultValue>Añadir palabras clave</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                        <FiChevronDown className="c-createJob-step4__icon-select"/>
 
-                </label>
+                    </label>
                 </form>
                 <MainWButton fn={handleSubmit(doSubmit)}>Continuar</MainWButton>
             </Section>
