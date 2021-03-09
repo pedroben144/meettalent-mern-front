@@ -12,6 +12,8 @@ export function SignUpPage(){
     let history = useHistory();
 
     const [actualStep,setActualStep] = useState(1);
+    const [mail, setMail] = useState('');
+    
 
     const changeStep = () =>{
         const newStep = actualStep + 1;
@@ -31,15 +33,12 @@ export function SignUpPage(){
         setActualStep(actualStep);
     }
 
-
     useEffect(initialStep,[actualStep])
-
-
 
     return(
         <>
-            {(actualStep === 1) && <Step1 changeStep = {changeStep}  goBackPage = {exitSignup}/>}
-            {(actualStep === 2) && <Step2 changeStep = {changeStep} goBackPage = {goBackPage}/>}
+            {(actualStep === 1) && <Step1 changeStep = {changeStep} goBackPage = {exitSignup} setMail={setMail}/>}
+            {(actualStep === 2) && <Step2 changeStep = {changeStep} goBackPage = {goBackPage} mailValue={mail} setMail={setMail} />}
             {(actualStep === 3) && <Step3/>}
         </>
     )

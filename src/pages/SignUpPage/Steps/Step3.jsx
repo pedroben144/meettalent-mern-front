@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import MainWButton from '../../../components/MainBtn';
 import Section from '../../../containers/Section';
@@ -9,7 +9,7 @@ import { MainContext } from '../../../contexts/MainContext';
 export default function Step3() {
 
     const {setMainStyle} = useContext(MainContext);
-    setMainStyle("blue");
+    useEffect(() => setMainStyle("blue"), [setMainStyle]);
 
     let history = useHistory();
 
@@ -19,7 +19,6 @@ export default function Step3() {
 
     return( 
         <>
-           
             <Section className="register-step3-container">
                 
                     <img className="register-step3-container__image" src="assets/images/register-step3.jpeg" alt="register-step3.jpeg"/>
@@ -31,6 +30,5 @@ export default function Step3() {
                     <MainWButton white fn={goBack}>Comenzar</MainWButton>
             </Section>
         </>
-        
     )
 }

@@ -14,9 +14,7 @@ export function IconContainer(){
                 <div className="b-IconContainer__container b-IconContainer__facebook"><ImFacebook/></div>
                 <div className="b-IconContainer__container b-IconContainer__google"><FcGoogle/></div>
                 <div className="b-IconContainer__container b-IconContainer__apple"><ImAppleinc/></div>
-
             </div>
-            
         </div>
     );   
 }
