@@ -1,0 +1,94 @@
+.c-employment{
+    &__employIcons-container{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 3%;
+    }
+    &__img-container{
+        display: flex;
+        justify-content: center;
+        width: 80px;
+        height: 65px;
+        border-radius: 8px;
+        border: solid transparent 0px;
+        background-color: $c-white;
+        margin-bottom: 8%;
+        box-shadow: 0px 0px 5px 0px black;
+        &--icons{
+            padding: 8px;     
+        }
+        &--te{
+            padding: 20px;
+        }
+    }
+
+    &__text{
+        margin-bottom: 10%;
+        margin-top: 10%;
+        font-size: 1.8rem;
+        color:$c-blue-75;
+        margin-right: 38%;
+        
+    }
+        
+    
+    &__img{
+        object-fit: contain; 
+        &--border{
+            border-radius: 8px;
+        }
+         
+    }
+    &__in-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        border: solid transparent 2px;
+        width: 80px;
+        height: 65px;
+        margin-bottom: 8%;
+        background-color: rgb(1, 119, 183);
+        box-shadow: 0px 0px 5px 0px black;
+        
+    }
+    &__in{
+        font-size: 3rem;
+        color: $c-white;
+        background-color: rgb(1, 119, 183);
+    }
+}
+.c-social{
+    &__social-container{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    &__icon-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        border: solid transparent 2px;
+        width: 80px;
+        height: 65px;
+        margin-bottom: 8%;
+        background-color: $c-white;
+        box-shadow: 0px 0px 5px 0px black;
+        
+    }
+    &__icon{
+        font-size: 4rem;
+    }
+    &__text{
+        font-size: 1.8rem;
+        color:$c-blue-75;
+        margin-right: 38%;
+        margin-bottom: 10%;
+        margin-top: 10%;
+        
+    }
+}
+
+
