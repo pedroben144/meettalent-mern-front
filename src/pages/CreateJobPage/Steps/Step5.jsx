@@ -3,7 +3,6 @@ import Header from '../../../containers/Header';
 import Section from '../../../containers/Section';
 import { MainContext } from '../../../contexts/MainContext';
 import EmploymentIcons from '../components/EmploymentIcons';
-import MainBtn from '../../../components/MainBtn';
 import RoundBtn from '../../../components/RoundBtn';
 import SocialIcons from '../components/SocialIcons';
 import MainWButton from '../../../components/MainBtn';
