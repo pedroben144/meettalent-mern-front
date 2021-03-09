@@ -8,6 +8,7 @@ import { FiChevronDown } from "react-icons/fi";
 import { AiOutlineEdit } from "react-icons/ai";
 import MainWButton from '../../../components/MainBtn';
 import { CreateJobContext } from '../../../contexts/CreateJobContext';
+import { CreateOffer } from '../../../api/offers';
 
 
 
@@ -23,6 +24,7 @@ export default function Step6 (props) {
         const newFormData = {...formData, ...data};
         setFormData(newFormData);
         console.log(newFormData);
+        CreateOffer(formData);
         props.changeStep();
     }
 
@@ -42,8 +44,8 @@ export default function Step6 (props) {
                 <form className="c-createJob-step6__form" >
                     <label className="c-createJob-step6__label" >
                         <h5 className="c-createJob-step6__h5">Titulo de la oferta</h5>
-                        <select className="input input--white c-createJob-step6__select" type="select" name="jobTitle" ref={register({required:true})}>
-                            <option  defaultValue={formData.jobTitle}>{formData.jobTitle}</option>
+                        <select className="input input--white c-createJob-step6__select" type="select" name="title" ref={register({required:true})}>
+                            <option  defaultValue={formData.title}>{formData.title}</option>
                             <option value="Administrativo">Administrativo</option>
                             <option value="Project Manager">Project Manager</option>
                             <option value="Programador">Programador</option>
@@ -55,8 +57,8 @@ export default function Step6 (props) {
                     
                     <label className="c-createJob-step6__label" >
                         <h5 className="c-createJob-step6__h5">Nº de vacantes</h5>
-                        <select className="input input--white c-createJob-step6__select" type="select" name="vacancies" ref={register({required:true})}>
-                            <option  defaultValue={formData.vacancies}>{formData.vacancies}</option>
+                        <select className="input input--white c-createJob-step6__select" type="select" name="vacancyNum" ref={register({required:true})}>
+                            <option  defaultValue={formData.vacancyNum}>{formData.vacancyNum}</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -94,8 +96,8 @@ export default function Step6 (props) {
                     
                     <label className="c-createJob-step6__label" >
                         <h5 className="c-createJob-step6__h5">Formación</h5>
-                        <select className="input input--white c-createJob-step6__select" type="select" name="training" ref={register}>
-                            <option defaultValue={formData.training}>{formData.training}</option>
+                        <select className="input input--white c-createJob-step6__select" type="select" name="educationRequired" ref={register}>
+                            <option defaultValue={formData.educationRequired}>{formData.educationRequired}</option>
                             <option value="Licenciatura en diseño">Licenciatura en diseño</option>
                             <option value="Ingeniería informática">Ingeniería informática</option>
                             <option value="Licenciatura Comunicación audiovisual">Licenciatura Comunicación audiovisual</option>

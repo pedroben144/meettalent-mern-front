@@ -44,7 +44,7 @@ export default function Step2(props){
             <Section >
             <form className="c-createJob-step2__form">
                 <label className="c-createJob-step2__label">
-                    <select className="input input--white c-createJob-step2__select" type="select" name="vacancies" ref={register({required:true})}>
+                    <select className="input input--white c-createJob-step2__select" type="select" name="vacancyNum" ref={register({required:true})}>
                         <option disable defaultValue>Nº de vacantes</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -78,7 +78,7 @@ export default function Step2(props){
                 </label>
                 
                 <label className="c-createJob-step2__label">
-                    <select className="input input--white c-createJob-step2__select" type="select" name="training" ref={register}>
+                    <select className="input input--white c-createJob-step2__select" type="select" name="educationRequired" ref={register}>
                         <option disable defaultValue>Formación</option>
                         <option value="Licenciatura en diseño">Licenciatura en diseño</option>
                         <option value="Ingeniería informática">Ingeniería informática</option>

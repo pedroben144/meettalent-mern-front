@@ -43,7 +43,7 @@ export default function Step4(props){
                     <h5 className="c-createJob-step4__h5">Requisitos de candidato</h5>
                     <label className="c-createJob-step4__label" >
                         <p className="c-createJob-step4__label-text">Descripción de los requisitos</p><AiOutlineEdit className="c-createJob-step4__icon-edit"/>
-                        <textarea className="c-createJob-step4__textarea" id="textarea" name="descriptionCandidate" ref={register({maxLength:450})} placeholder="Descripción..." onInput={countCharacters} />
+                        <textarea className="c-createJob-step4__textarea" id="textarea" name="candidateRequirements" ref={register({maxLength:450})} placeholder="Descripción..." onInput={countCharacters} />
                         <div className="c-createJob-step4__counter" id="counter"></div>
                     </label>
                     <label className="c-createJob-step4__label c-createJob-step4__label--border" >
@@ -58,12 +58,19 @@ export default function Step4(props){
                     </label>
                     <h5 className="c-createJob-step4__h5 c-createJob-step4__h5--key-word">Codificaciones internas</h5>
                     <label className="c-createJob-step4__label" >
-                        <select className="input input--white c-createJob-step4__select" type="select" name="keyWord" ref={register}>
+                        <select className="input input--white c-createJob-step4__select" type="select" name="keyWords" ref={register}>
                             <option disable defaultValue>Añadir palabras clave</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
+                            <option value="Creatividad">Creatividad</option>
+                            <option value="UX/UI">UX/UI</option>
+                            <option value="Sketch">Sketch</option>
+                            <option value="Empatía">Empatía</option>
+                            <option value="Proyectos">Proyectos</option>
+                            <option value="HTML">HTML</option>
+                            <option value="CSS">CSS</option>
+                            <option value="Angular">Angular</option>
+                            <option value="React">React</option>
+                            <option value="Node">Node</option>
+                            
                         </select>
                         <FiChevronDown className="c-createJob-step4__icon-select"/>
 

@@ -35,7 +35,7 @@ export default function Step3(props) {
                 
                 <form className="c-createJob-step3__form">
                 <label className="c-createJob-step3__label">
-                    <select className="input input--white c-createJob-step3__input" type="text" name="city" ref={register}>
+                    <select className="input input--white c-createJob-step3__input" type="text" name="location" ref={register}>
                         <option disable defaultValue="Ciudad">Ciudad</option>
                         <option value="Madrid">Madrid</option>
                         <option value="Barcelona">Barcelona</option>
@@ -67,7 +67,7 @@ export default function Step3(props) {
                     <FiChevronDown className="c-createJob-step3__icon-select-questions"/>
                 </label>
                 <label className="c-createJob-step3__label">
-                    <select className="input input--white c-createJob-step3__input" type="text" name="availability" ref={register} placeholder="Disponibilidad">
+                    <select className="input input--white c-createJob-step3__input" type="text" name="availabilityRequired" ref={register} placeholder="Disponibilidad">
                         <option disable defaultValue="Disponibilidad">Disponibilidad</option>
                         <option value="Disponibilidad para Incorporarse">Disponibilidad para Incorporarse</option>
                         <option value="Disponibilidad Horaria">Disponibilidad Horaria</option>
@@ -110,7 +110,7 @@ export default function Step3(props) {
                     <FiChevronDown className="c-createJob-step3__icon-select-questions"/>
                 </label>
                 <label className="c-createJob-step3__label">
-                    <select className="input input--white c-createJob-step3__input" type="text" name="contract" ref={register} placeholder="Tipo de contrato">
+                    <select className="input input--white c-createJob-step3__input" type="text" name="contractType" ref={register} placeholder="Tipo de contrato">
                         <option disable defaultValue="Tipo de contrato">Tipo de contrato</option>
                         <option value="Contrato indefinido">Contrato indefinido</option>
                         <option value="Contrato temporal">Contrato temporal</option>
