@@ -24,7 +24,6 @@ export default function MainWrapper(props) {
             case 'blue-rectangle':
                 className += ' main--blue-rectangle';
                 break;
-                
             default:
                 break;
         }

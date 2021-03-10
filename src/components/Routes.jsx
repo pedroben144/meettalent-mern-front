@@ -6,11 +6,11 @@ import { HomePage } from "../pages/HomePage/HomePage";
 import { PeoplePage } from "../pages/PeoplePage/PeoplePage";
 import { ProfilePage } from "../pages/ProfilePage/ProfilePage";
 import { RecoverPage } from "../pages/RecoverPage/RecoverPage";
-import { SignupPage } from "../pages/SignupPage/SignupPage";
+import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
 import CreateJobPage from "../pages/CreateJobPage/CreateJobPage";
-
-
+import { SearchPage } from "../pages/SearchPage/SearchPage";
+import { CreatePage } from "../pages/CreatePage/CreatePage";
 
 export function Routes() {
   return (
@@ -25,7 +25,7 @@ export function Routes() {
         <CreateJobPage/>
       </Route>
       <Route path="/create">
-        <p>CreatePage</p>
+        <CreatePage />
       </Route>
       <Route path="/people/:idPeople">
         <p>PeoplePageDetail</p>
@@ -34,13 +34,13 @@ export function Routes() {
         <PeoplePage />
       </Route>
       <Route path="/search">
-        <p>SearchPage</p>
+        <SearchPage />
       </Route>
       <Route path="/recover">
         <RecoverPage />
       </Route>
       <Route path="/signup">
-        <SignupPage />
+        <SignUpPage />
       </Route>
       <Route path="/login">
         <LoginPage />

@@ -9,9 +9,19 @@
     background-color: transparent;
     font-weight: $-f-medium;
     color: black;
+
     &__span{
         position: fixed;
         left: 0;
         margin-left: 9%;
+    }
+
+
+    &__logo {
+        max-width: 120px;
+
+        &--opaque {
+            opacity: 0.5;
+        }
     }
 }
