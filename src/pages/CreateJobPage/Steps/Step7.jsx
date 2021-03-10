@@ -18,12 +18,8 @@ export default function Step7 (props) {
                     <h2 className="c-createJob-step7__h2">¡ Enhorabuena !</h2>
                     <p className="c-createJob-step7__p">Acabas de publicar una oferta</p>
                     <MainWButton>Ver oferta publicada</MainWButton>
-
                 </div>
-                
-                
             </Section>
-
         </>
     )
 }

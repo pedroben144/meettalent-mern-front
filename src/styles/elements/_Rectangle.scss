@@ -1,5 +1,7 @@
 .rectangle{
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     position: absolute;
     top: 100%;
