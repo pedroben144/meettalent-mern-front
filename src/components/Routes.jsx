@@ -8,6 +8,7 @@ import { ProfilePage } from "../pages/ProfilePage/ProfilePage";
 import { RecoverPage } from "../pages/RecoverPage/RecoverPage";
 import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
+import CreateJobPage from "../pages/CreateJobPage/CreateJobPage";
 import { SearchPage } from "../pages/SearchPage/SearchPage";
 import { CreatePage } from "../pages/CreatePage/CreatePage";
 
@@ -21,7 +22,7 @@ export function Routes() {
         <p>CreateJobPage</p>
       </Route>
       <Route path="/create/job">
-        <p>CreateJobPage</p>
+        <CreateJobPage/>
       </Route>
       <Route path="/create">
         <CreatePage />

@@ -21,6 +21,9 @@ export default function MainWButton(props) {
             case 'bottom':
                 className += ' main-btn--bottom';
                 break;
+            case 'blue-rectangle':
+                className += ' main-btn--blue-rectangle';
+                break;
             default:
                 break;
         }

@@ -21,6 +21,9 @@ export default function MainWrapper(props) {
             case 'bottom':
                 className += ' main--bottom';
                 break;
+            case 'blue-rectangle':
+                className += ' main--blue-rectangle';
+                break;
             default:
                 break;
         }
