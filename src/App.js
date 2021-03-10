@@ -34,6 +34,7 @@ function App() {
       }
     };
     if (localToken && localUser) {
+      setIsLogged(true);
       axios.get(process.env.REACT_APP_BASE_URL + '/user/' + localUser, axiosConfig)
       .then(function(res) {
         setLoggedUser(res.data.found);
@@ -46,6 +47,7 @@ function App() {
 
   useEffect(fixHeight, []);
   useEffect(() => {setTimeout(() => setStartLoader(false), 3000)}, []);
+  useEffect(() => getLoggedUser(), [])
 
   return (
     <Router>
