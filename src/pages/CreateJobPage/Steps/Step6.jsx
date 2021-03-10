@@ -26,7 +26,6 @@ export default function Step6 (props) {
         const localId = localStorage.getItem('user');
         const status = {status:"true"};
         const company = {
-            companyName: loggedUser.name,
             companyId: localId
         }
         const newFormData = {...formData, ...data, ...status, ...company};

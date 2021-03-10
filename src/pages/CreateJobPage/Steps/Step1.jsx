@@ -6,7 +6,6 @@ import Header from '../../../containers/Header';
 import Rectangle from '../../../containers/Rectangle';
 import Section from '../../../containers/Section';
 import { MainContext } from '../../../contexts/MainContext';
-import { AiOutlineEdit } from "react-icons/ai";
 import { CreateJobContext } from '../../../contexts/CreateJobContext';
 
 
@@ -46,7 +45,7 @@ export default function Step1(props){
 
     return(
         <>
-            <Header goBack>Descripción de la oferta</Header>
+            <Header goBack fn={props.goBackPage}>Descripción de la oferta</Header>
             <Section>
                 <Rectangle blue active={rectangle}>
                     <ul className="c-createJob-step1__ul">
