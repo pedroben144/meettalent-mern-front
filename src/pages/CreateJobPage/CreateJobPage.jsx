@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { API } from '../../api/api.consts';
 import { CreateJobContext } from '../../contexts/CreateJobContext';
+import { FooterContext } from '../../contexts/FooterContext';
 import Step1 from './Steps/Step1';
 import Step2 from './Steps/Step2';
 import Step3 from './Steps/Step3';
@@ -14,6 +15,8 @@ import Step7 from './Steps/Step7';
 export default function CreateJobPage(){
 
     const history = useHistory();
+
+    const {setFooter} = useContext(FooterContext);
     
 
     const [actualStep,setActualStep] = useState(1);
@@ -67,6 +70,10 @@ export default function CreateJobPage(){
     const exitCreateJob = () => {
         history.push('/create');
     }
+    
+    const goToJobs = () => {
+        history.push('/jobs');
+    }
 
     const initialStep = () => {
         setActualStep(actualStep);
@@ -74,6 +81,7 @@ export default function CreateJobPage(){
 
     useEffect(initialStep,[actualStep]);
     useEffect(getOffers,[]);
+    useEffect(() => setFooter(false), []);
 
 
     return(
@@ -85,7 +93,7 @@ export default function CreateJobPage(){
                 {(actualStep === 4) && <Step4 changeStep = {changeStep}  goBackPage = {goBackPage}/>}
                 {(actualStep === 5) && <Step5 changeStep = {changeStep}  goBackPage = {goBackPage} />}
                 {(actualStep === 6) && <Step6 changeStep = {changeStep}  goBackPage = {goBackPage}/>}
-                {(actualStep === 7) && <Step7/>}
+                {(actualStep === 7) && <Step7 fn={goToJobs}/>}
                 
 
             </CreateJobContext.Provider>

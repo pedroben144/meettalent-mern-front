@@ -17,13 +17,9 @@ export default function Step7 (props) {
                     <img className="c-createJob-step7__img"  src="/assets/images/createJob-step7.jpeg" alt=""/>
                     <h2 className="c-createJob-step7__h2">¡ Enhorabuena !</h2>
                     <p className="c-createJob-step7__p">Acabas de publicar una oferta</p>
-                    <MainWButton>Ver oferta publicada</MainWButton>
-
+                    <MainWButton fn={props.fn}>Ver oferta publicada</MainWButton>
                 </div>
-                
-                
             </Section>
-
         </>
     )
 }

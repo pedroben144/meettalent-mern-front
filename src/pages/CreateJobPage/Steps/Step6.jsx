@@ -8,8 +8,8 @@ import { FiChevronDown } from "react-icons/fi";
 import { AiOutlineEdit } from "react-icons/ai";
 import MainWButton from '../../../components/MainBtn';
 import { CreateJobContext } from '../../../contexts/CreateJobContext';
-import { CreateOffer } from '../../../api/offers';
 import { API } from '../../../api/api.consts';
+import { LoginContext } from '../../../contexts/LoginContext';
 
 
 
@@ -17,18 +17,21 @@ export default function Step6 (props) {
 
     const {register,handleSubmit} = useForm();
     const {setMainStyle} = useContext(MainContext);
+    const {loggedUser} = useContext(LoginContext);
     
 
     const {formData,setFormData} = useContext(CreateJobContext);
 
     const doSubmit = (data) => {
+        const localId = localStorage.getItem('user');
         const status = {status:"true"};
-        const newFormData = {...formData, ...data};
-        const newFormData2 = {...newFormData, ...status};
-        setFormData(newFormData2);
-        console.log(newFormData2);
-        //CreateOffer(formData);
-        API.post('offers',newFormData2).then((res)=>{
+        const company = {
+            companyId: localId
+        }
+        const newFormData = {...formData, ...data, ...status, ...company};
+        setFormData(newFormData);
+        console.log(newFormData);
+        API.post('offers',newFormData).then((res)=>{
             console.log('register offer')
         });
         props.changeStep();
@@ -39,8 +42,6 @@ export default function Step6 (props) {
         const target = e.target;
         const longitudAct = target.value.length;
         counter.innerHTML = `${longitudAct}/450`;
-
-
     }
 
     useEffect(()=>{
