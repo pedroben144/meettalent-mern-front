@@ -7,11 +7,13 @@ import Header from "../../containers/Header";
 import Section from "../../containers/Section";
 import { FooterContext } from "../../contexts/FooterContext";
 import { useHistory } from "react-router";
+import { LoginContext } from "../../contexts/LoginContext";
 
 export function HomePage() {
 
   const { setMainStyle } = useContext(MainContext);
   const { setFooter } = useContext(FooterContext);
+  const { getLoggedUser, loggedUser } = useContext(LoginContext);
 
   let history = useHistory();
 
@@ -20,8 +22,9 @@ export function HomePage() {
   }
 
 
-  useEffect(() => setMainStyle("white"), [setMainStyle]);
+  useEffect(() => {setMainStyle("white"); getLoggedUser()}, [setMainStyle]);
   useEffect(() => setFooter(true), [setFooter]);
+
 
   return (
     <>
@@ -35,6 +38,7 @@ export function HomePage() {
             <div className="input input--search--icon"><BiSearch /></div>
           </div>
           <div className="home__content">
+          {loggedUser && loggedUser.email}
             <h3 className="home__content__title">Ofertas abiertas</h3>
             <div className="card">
               <p className="card__date">15/06/2020</p>
