@@ -1,11 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import MainWButton from '../../../components/MainBtn';
 import Section from '../../../containers/Section';
 import { MainContext } from '../../../contexts/MainContext';
 
 export default function Step7 (props) {
     const {setMainStyle} = useContext(MainContext);
-    setMainStyle('blue');
+    
+    useEffect(()=>{
+        setMainStyle('blue');
+    },[]);
 
     return(
         <>

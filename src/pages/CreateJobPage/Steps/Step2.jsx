@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import MainWButton from '../../../components/MainBtn';
 import Header from '../../../containers/Header';
@@ -9,11 +9,12 @@ import { FiChevronDown } from "react-icons/fi";
 import { CreateJobContext } from '../../../contexts/CreateJobContext';
 
 
+
 export default function Step2(props){
     const {register,handleSubmit} = useForm();
 
     const {setMainStyle} = useContext(MainContext);
-    setMainStyle("bottom");
+    
 
     const {formData,setFormData} = useContext(CreateJobContext);
 
@@ -22,7 +23,9 @@ export default function Step2(props){
         setFormData(newFormData);
         props.changeStep();
         console.log(newFormData);
+        
     }
+    
 
     const countCharacters = (e) =>{
         const counter = document.getElementById('counter');
@@ -34,7 +37,9 @@ export default function Step2(props){
     }
  
 
-
+    useEffect(()=>{
+        setMainStyle("bottom");
+    },[]);
 
 
 
@@ -55,7 +60,7 @@ export default function Step2(props){
 
                 </label>
                 <label className="c-createJob-step2__label" >
-                    <select className="input input--white c-createJob-step2__select" type="select" name="language" ref={register}>
+                    <select className="input input--white c-createJob-step2__select" type="select" name="language" ref={register({required:true})}>
                         <option disable defaultValue>Idioma</option>
                         <option value="Español">Español</option>
                         <option value="Ingles">Ingles</option>

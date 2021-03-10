@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Header from '../../../containers/Header';
 import Section from '../../../containers/Section';
@@ -9,6 +9,7 @@ import { AiOutlineEdit } from "react-icons/ai";
 import MainWButton from '../../../components/MainBtn';
 import { CreateJobContext } from '../../../contexts/CreateJobContext';
 import { CreateOffer } from '../../../api/offers';
+import { API } from '../../../api/api.consts';
 
 
 
@@ -16,15 +17,20 @@ export default function Step6 (props) {
 
     const {register,handleSubmit} = useForm();
     const {setMainStyle} = useContext(MainContext);
-    setMainStyle('bottom');
+    
 
     const {formData,setFormData} = useContext(CreateJobContext);
 
     const doSubmit = (data) => {
+        const status = {status:"true"};
         const newFormData = {...formData, ...data};
-        setFormData(newFormData);
-        console.log(newFormData);
-        CreateOffer(formData);
+        const newFormData2 = {...newFormData, ...status};
+        setFormData(newFormData2);
+        console.log(newFormData2);
+        //CreateOffer(formData);
+        API.post('offers',newFormData2).then((res)=>{
+            console.log('register offer')
+        });
         props.changeStep();
     }
 
@@ -36,6 +42,10 @@ export default function Step6 (props) {
 
 
     }
+
+    useEffect(()=>{
+        setMainStyle("bottom");
+    },[]);
 
     return(
         <>

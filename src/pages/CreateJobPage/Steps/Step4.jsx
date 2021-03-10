@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Header from '../../../containers/Header';
 import Section from '../../../containers/Section';
@@ -10,11 +10,12 @@ import MainWButton from '../../../components/MainBtn';
 import { CreateJobContext } from '../../../contexts/CreateJobContext';
 
 
+
 export default function Step4(props){
     const {register,handleSubmit} = useForm();
 
     const {setMainStyle} = useContext(MainContext);
-    setMainStyle('bottom');
+    
 
     const {formData,setFormData} = useContext(CreateJobContext);
 
@@ -33,6 +34,10 @@ export default function Step4(props){
 
 
     }
+
+    useEffect(()=>{
+        setMainStyle("bottom");
+    },[]);
 
 
     return(
