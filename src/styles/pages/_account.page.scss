@@ -1,0 +1,16 @@
+.account {
+    padding-top: 80px;
+    width: 100%;
+
+    &__img {
+        position: absolute;
+        left: 50%;
+        bottom: 60%;
+        transform: translate(-50%, -60%);
+        z-index: 9999;
+    }
+
+    &__item {
+        margin: 1rem 0;
+    }
+}

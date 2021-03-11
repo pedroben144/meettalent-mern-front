@@ -13,6 +13,7 @@ import { SearchPage } from "../pages/SearchPage/SearchPage";
 import { CreatePage } from "../pages/CreatePage/CreatePage";
 import PrivateRoute from "../containers/PrivateRoute";
 import PublicRoute from "../containers/PublicRoute";
+import AccountPage from "../pages/ProfilePage/pages/AccountPage";
 
 export function Routes() {
   return (
@@ -27,6 +28,7 @@ export function Routes() {
       <PrivateRoute component={PeoplePage} exact path="/people/:idPeople" />
       <PrivateRoute component={PeoplePage} exact path="/people" />
       <PrivateRoute component={SearchPage} exact path="/search" />
+      <PrivateRoute component={AccountPage} exact path="/profile/account" />
       <PrivateRoute component={ProfilePage} exact path="/profile" />
       <PrivateRoute component={HomePage} exact path="/home" />
       <Route path="*">

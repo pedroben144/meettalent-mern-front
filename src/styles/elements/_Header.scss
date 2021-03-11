@@ -10,10 +10,15 @@
     font-weight: $-f-medium;
     color: black;
 
+    &--white {
+        color: white;
+    }
+
     &__span{
         position: fixed;
         left: 0;
         margin-left: 9%;
+        cursor: pointer;
     }
 
 
