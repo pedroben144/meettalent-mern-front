@@ -15,7 +15,7 @@ export function HomePage() {
 
   const { setMainStyle } = useContext(MainContext);
   const { setFooter } = useContext(FooterContext);
-  const { getLoggedUser, loggedUser } = useContext(LoginContext);
+  const { getLoggedUser } = useContext(LoginContext);
 
   const [ offersData, setOffersData ] = useState(null);
 
@@ -26,12 +26,13 @@ export function HomePage() {
   }
 
   const getData = () => {
+    const localUser = localStorage.getItem('user');
     axios.get(process.env.REACT_APP_BASE_URL + '/offers')
     .then(function(res) {
       const data = res.data.results;
       let offers = [];
       for (const item of data) {
-        if (item.status) {
+        if (item.status && item.companyId === localUser) {
           offers.push(item);
         }
       }
@@ -54,7 +55,11 @@ export function HomePage() {
     })
   }
 
-  useEffect(() => {setMainStyle("white"); getLoggedUser()}, [setMainStyle]);
+  const goToDetail = (id) => {
+    history.push(`/jobs/${id}`)
+  }
+
+  useEffect(() => {setMainStyle("white"); getLoggedUser()}, [setMainStyle, getLoggedUser]);
   useEffect(() => setFooter(true), [setFooter]);
   useEffect(() => getData(), []);
 
@@ -74,7 +79,7 @@ export function HomePage() {
             {offersData && offersData.map((offer, i) => (
             <div className="card" key={i}>
               <p className="card__date">{moment(offer.releaseDate).format("DD-MM--YYYY")}</p>
-              <h4 className="card__title">{offer.title}</h4>
+              <h4 className="card__title" onClick={() => goToDetail(offer._id)}>{offer.title}</h4>
               <div className="card__status">
                 <div className="card__status__item"><FiMapPin /><span className="card__status__item--text">{offer.location}</span></div>
                 <div className="card__status__item"><span className="card__status__item--text">{offer.candidates.length}</span><FiUser /></div>
