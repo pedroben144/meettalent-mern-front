@@ -1,7 +1,11 @@
 .c-people-page {
-    
+
+    position: fixed;
+    z-index: 999;
+
     &__label{
         position: relative;
+        top: 0;
     }
     &__button{
         position: fixed;
