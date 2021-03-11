@@ -62,6 +62,7 @@ export function HomePage() {
   useEffect(() => {setMainStyle("white")}, [setMainStyle]);
   useEffect(() => setFooter(true), [setFooter]);
   useEffect(() => getData(), []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => getLoggedUser(), [])
 
   return (

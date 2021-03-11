@@ -17,10 +17,10 @@ export default function AccountPage() {
     const goBack = () => {
         history.push('/profile');
     }
-
     useEffect(() => {
         setMainStyle('blue');
         getLoggedUser();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [setMainStyle])
 
     return (
