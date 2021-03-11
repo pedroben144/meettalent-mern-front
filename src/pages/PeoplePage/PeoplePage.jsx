@@ -4,7 +4,7 @@ import Section from "../../containers/Section";
 import { FooterContext } from "../../contexts/FooterContext";
 import Header from "../../containers/Header";
 import Rectangle from "../../containers/Rectangle";
-import { useForm } from "react-hook-form";
+
 import { API } from "../../api/api.consts";
 import PeopleGallery from "./components/PeopleGallery/PeopleGallery";
 import RoundBtn from "../../components/RoundBtn";
@@ -14,7 +14,7 @@ import { useHistory } from "react-router";
 export function PeoplePage() {
   let history = useHistory();
 
-  const {register,handleSubmit,reset,errors} = useForm;
+  
 
   const [people, setPeople] = useState([]);
   const [filterPeople, setFilterPeople] = useState([]);
@@ -59,7 +59,7 @@ export function PeoplePage() {
           <form className="c-people-page__form"  >
             <label className= "c-people-page__label" >
               <CgSearch className="c-people-page__icon-search"/>
-              <input className="input input--blue input--paddingPeople" type="text" id="searchPeople" ref={register} placeholder="Buscar" onChange={(doSearching)}/>
+              <input className="input input--blue input--paddingPeople" type="text" id="searchPeople" placeholder="Buscar" onChange={(doSearching)}/>
             </label>
           </form>
           <PeopleGallery   filterPeople={filterPeople}/>
