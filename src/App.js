@@ -52,7 +52,7 @@ function App() {
   return (
     <Router>
       <MainContext.Provider value={{ mainStyle, setMainStyle }}>
-        <LoginContext.Provider value={{ isLogged, setIsLogged, loggedUser, getLoggedUser }}>
+        <LoginContext.Provider value={{ isLogged, setIsLogged, loggedUser, setLoggedUser, getLoggedUser }}>
           <SearchContext.Provider value={{ searchValue, setSearchValue }}>
             <FooterContext.Provider value={{ setFooter }}>
               <MainWrapper>

@@ -48,13 +48,13 @@ export default function Step1(props){
             <Header goBack fn={props.goBackPage}>Descripción de la oferta</Header>
             <Section>
                 <Rectangle blue active={rectangle}>
-                    <ul className="c-createJob-step1__ul">
+                    {props.offers.length !== 0 && <ul className="c-createJob-step1__ul">
                         <p>Duplicar oferta</p> 
                         {props.offers.map((offer,i) =>
                             
                             <input type="text" className="input input--blue c-createJob-step1__input" key={i} onClick={(e)=> {updateTitle(e)}} value={offer.title} readOnly/> 
                         )}
-                    </ul>
+                    </ul>}
                     <form className="c-createJob-step1__form" >
                         <label className="c-createJob-step1__label">
                         <p className="c-createJob-step1__label-text">Titulo de la nueva oferta</p>
