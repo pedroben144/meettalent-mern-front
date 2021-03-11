@@ -10,6 +10,7 @@ import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
 import { SearchPage } from "../pages/SearchPage/SearchPage";
 import { CreatePage } from "../pages/CreatePage/CreatePage";
+import { PeopleDetailPage } from "../pages/PeoplePage/components/PeopleDetailPage";
 
 export function Routes() {
   return (
@@ -27,7 +28,7 @@ export function Routes() {
         <CreatePage />
       </Route>
       <Route path="/people/:idPeople">
-        <p>PeoplePageDetail</p>
+        <PeopleDetailPage/>
       </Route>
       <Route path="/people">
         <PeoplePage />
