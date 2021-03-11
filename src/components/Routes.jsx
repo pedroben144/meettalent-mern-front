@@ -22,6 +22,7 @@ export function Routes() {
       <PublicRoute component={SignUpPage} exact path="/signup" />
       <PublicRoute component={LoginPage} exact path="/login" />
       <PublicRoute component={LandingPage} exact path="/landing" />
+      <PrivateRoute component={JobsPage} exact path="/jobs/:idJob" />
       <PrivateRoute component={JobsPage} exact path="/jobs" />
       <PrivateRoute component={CreateJobPage} exact path="/create/job" />
       <PrivateRoute component={CreatePage} exact path="/create" />

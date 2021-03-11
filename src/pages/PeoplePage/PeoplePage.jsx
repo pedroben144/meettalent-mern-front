@@ -62,6 +62,7 @@ export function PeoplePage() {
             </form>
           </div>
         <Rectangle blue active={true}>
+
           <PeopleGallery   filterPeople={filterPeople}/>
           
          </Rectangle>
