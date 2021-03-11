@@ -11,7 +11,7 @@ import { LoginPage } from "../pages/LoginPage/LoginPage";
 import CreateJobPage from "../pages/CreateJobPage/CreateJobPage";
 import { SearchPage } from "../pages/SearchPage/SearchPage";
 import { CreatePage } from "../pages/CreatePage/CreatePage";
-import { PeopleDetailPage } from "../pages/PeoplePage/components/PeopleDetailPage";
+import { PeopleDetailPage } from "../pages/PeoplePage/pages/PeopleDetailPage";
 import PrivateRoute from "../containers/PrivateRoute";
 import PublicRoute from "../containers/PublicRoute";
 import AccountPage from "../pages/ProfilePage/pages/AccountPage";
@@ -28,7 +28,7 @@ export function Routes() {
       <PrivateRoute component={JobsPage} exact path="/jobs" />
       <PrivateRoute component={CreateJobPage} exact path="/create/job" />
       <PrivateRoute component={CreatePage} exact path="/create" />
-      <PrivateRoute component={PeoplePage} exact path="/people/:idPeople" />
+      <PrivateRoute component={PeopleDetailPage} exact path="/people/:idPeople" />
       <PrivateRoute component={PeoplePage} exact path="/people" />
       <PrivateRoute component={SearchPage} exact path="/search" />
       <PrivateRoute component={AccountPage} exact path="/profile/account" />

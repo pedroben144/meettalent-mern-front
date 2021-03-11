@@ -5,12 +5,13 @@ import { MainContext } from '../../../contexts/MainContext';
 import { FaTwitter } from 'react-icons/fa';
 import { FiInstagram } from 'react-icons/fi';
 import { GrFacebookOption } from "react-icons/gr";
-import { AiFillPauseCircle, AiOutlineCalendar } from "react-icons/ai";
+import { AiOutlineCalendar } from "react-icons/ai";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { FiMail } from "react-icons/fi";
 import { FiPhone } from "react-icons/fi";
 import { useHistory, useParams } from 'react-router';
 import { API } from '../../../api/api.consts'
+import { FooterContext } from '../../../contexts/FooterContext';
 
 
 export function PeopleDetailPage(props) {
@@ -18,14 +19,13 @@ export function PeopleDetailPage(props) {
     let history = useHistory();
 
     const {setMainStyle} = useContext(MainContext);
-    setMainStyle("blue");
+    const { setFooter } = useContext(FooterContext);
 
-    const [candidate, setCandidate] = useState(null);
+    const [candidate, setCandidate] = useState([]);
     const{idPeople} = useParams();
 
     const getCandidate = () => {
         API.get("candidates/" + idPeople).then((res) => {
-            console.log(res.data.results);
             setCandidate(res.data.results);
         })
     }
@@ -35,9 +35,11 @@ export function PeopleDetailPage(props) {
     }
 
 
+    useEffect(() => setMainStyle("blue"), [setMainStyle]);
+    useEffect(getCandidate,[idPeople]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(() => setFooter(false), []);
 
-    useEffect(() => setMainStyle("blue"), []);
-    useEffect(getCandidate,[]);
     return (
         <>
             
@@ -66,14 +68,14 @@ export function PeopleDetailPage(props) {
             
             <div className="c-white-rectangle__key-words">
                 <h4 className="c-white-rectangle__subtitles">Palabras clave del perfil</h4>
-                <div className="c-white-rectangle__key-words--box">
-                    <p className="c-white-rectangle__key-words--box--text" style={candidate.creativity ? {"backgroundColor": "#00b3cd"} : {"backgroundColor": "#d8eef8","color":"#0b4f6e"}}>Creatividad</p>
-                    <p className="c-white-rectangle__key-words--box--text" style={candidate.uxui ? {"backgroundColor": "#00b3cd"} : {"backgroundColor": "#d8eef8","color":"#0b4f6e"}}>UX/UI</p>
-                    <p className="c-white-rectangle__key-words--box--text" style={candidate.sketch ? {"backgroundColor": "#00b3cd"} : {"backgroundColor": "#d8eef8","color":"#0b4f6e"}}>Sketch</p>
-                    <p className="c-white-rectangle__key-words--box--text" style={candidate.projects ? {"backgroundColor": "#00b3cd"} : {"backgroundColor": "#d8eef8","color":"#0b4f6e"}}>Proyectos</p>
-                    <p className="c-white-rectangle__key-words--box--text" style={candidate.empathy ? {"backgroundColor": "#00b3cd"} : {"backgroundColor": "#d8eef8","color":"#0b4f6e"}}>Empatía</p>
-                    <p className="c-white-rectangle__key-words--box--text" style={candidate.html ? {"backgroundColor": "#00b3cd"} : {"backgroundColor": "#d8eef8","color":"#0b4f6e"}}>HTML</p>
-                </div>
+                {candidate.keyWords && <div className="c-white-rectangle__key-words--box">
+                    <p className="c-white-rectangle__key-words--box--text" style={candidate.keyWords.creativity ? {"backgroundColor": "#00b3cd"} : {"backgroundColor": "#d8eef8","color":"#0b4f6e"}}>Creatividad</p>
+                    <p className="c-white-rectangle__key-words--box--text" style={candidate.keyWords.uxui ? {"backgroundColor": "#00b3cd"} : {"backgroundColor": "#d8eef8","color":"#0b4f6e"}}>UX/UI</p>
+                    <p className="c-white-rectangle__key-words--box--text" style={candidate.keyWords.sketch ? {"backgroundColor": "#00b3cd"} : {"backgroundColor": "#d8eef8","color":"#0b4f6e"}}>Sketch</p>
+                    <p className="c-white-rectangle__key-words--box--text" style={candidate.keyWords.projects ? {"backgroundColor": "#00b3cd"} : {"backgroundColor": "#d8eef8","color":"#0b4f6e"}}>Proyectos</p>
+                    <p className="c-white-rectangle__key-words--box--text" style={candidate.keyWords.empathy ? {"backgroundColor": "#00b3cd"} : {"backgroundColor": "#d8eef8","color":"#0b4f6e"}}>Empatía</p>
+                    <p className="c-white-rectangle__key-words--box--text" style={candidate.keyWords.html ? {"backgroundColor": "#00b3cd"} : {"backgroundColor": "#d8eef8","color":"#0b4f6e"}}>HTML</p>
+                </div>}
             </div>
 
             <div className="c-white-rectangle__academic">
