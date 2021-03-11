@@ -37,8 +37,22 @@
     padding: 2rem;
     &::placeholder {
       color: #2b81a875;
+     
     }
   }
+
+  &--paddingPeople{
+    margin-top: 2rem;
+    font-weight: $-f-semi;
+    font-size: 1.6rem;
+    
+    &::placeholder {
+      padding-left: 20px;
+      color: $c-blue-75;
+    }
+
+  }
+  
 
   &--white {
     background-color: rgb(255, 255, 255);
