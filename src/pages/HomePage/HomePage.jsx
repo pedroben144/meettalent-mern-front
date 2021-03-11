@@ -27,7 +27,7 @@ export function HomePage() {
 
   const getData = () => {
     const localUser = localStorage.getItem('user');
-    axios.get(process.env.REACT_APP_BASE_URL + '/offers')
+    axios.get(process.env.REACT_APP_BASE_URL + 'offers')
     .then(function(res) {
       const data = res.data.results;
       let offers = [];
