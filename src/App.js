@@ -34,9 +34,10 @@ function App() {
       }
     };
     if (localToken && localUser) {
+      setIsLogged(true);
       axios.get(process.env.REACT_APP_BASE_URL + '/user/' + localUser, axiosConfig)
       .then(function(res) {
-        console.log(res.data.found);
+        setLoggedUser(res.data.found);
       })
       .catch(function(err) {
         console.log(err);
@@ -46,12 +47,12 @@ function App() {
 
   useEffect(fixHeight, []);
   useEffect(() => {setTimeout(() => setStartLoader(false), 3000)}, []);
-  useEffect(() => getLoggedUser, [isLogged]);
+  useEffect(() => getLoggedUser(), [])
 
   return (
     <Router>
       <MainContext.Provider value={{ mainStyle, setMainStyle }}>
-        <LoginContext.Provider value={{ isLogged, setIsLogged, loggedUser, setLoggedUser }}>
+        <LoginContext.Provider value={{ isLogged, setIsLogged, loggedUser, getLoggedUser }}>
           <SearchContext.Provider value={{ searchValue, setSearchValue }}>
             <FooterContext.Provider value={{ setFooter }}>
               <MainWrapper>

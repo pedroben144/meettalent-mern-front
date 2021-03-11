@@ -12,19 +12,28 @@
   transition: all 0.2s;
   cursor: pointer;
 
-    &--blue{
-        background-color: $c-blue-100;
-        color:  rgb(255, 255, 255);
-    }
-    &--white{
-        background-color: rgb(255, 255, 255);
-        color:  $c-blue-100;
-    }
-    &--bottom{
-        background-color: $c-blue-100;
-        color:  rgb(255, 255, 255);
-        position: fixed;
-        bottom: 0;
-        margin-bottom: 14%;
-    }
+  &--blue {
+    background-color: $c-blue-100;
+    color: rgb(255, 255, 255);
+  }
+  &--white {
+    background-color: rgb(255, 255, 255);
+    color: $c-blue-100;
+  }
+  &--bottom{
+    background-color: $c-blue-100;
+    color:  rgb(255, 255, 255);
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 14%;
+  }
+  &--blue-rectangle{
+    background-color: rgb(255, 255, 255);
+    color: $c-blue-100;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 14%;
+
+  }
+
 }
