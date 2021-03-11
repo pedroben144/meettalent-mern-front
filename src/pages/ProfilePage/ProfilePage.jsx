@@ -30,7 +30,7 @@ export function ProfilePage() {
     history.push('/landing');
   }
   
-  useEffect(() => {setMainStyle("white"); setFooter(false); getLoggedUser()} , [setMainStyle, setFooter, getLoggedUser]);
+  useEffect(() => {setMainStyle("white"); setFooter(false); getLoggedUser()} , [setMainStyle, setFooter]);
 
   return (
     <>
