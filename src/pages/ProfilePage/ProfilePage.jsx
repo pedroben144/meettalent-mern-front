@@ -12,7 +12,7 @@ export function ProfilePage() {
 
   const { setMainStyle } = useContext(MainContext);
   const { setFooter } = useContext(FooterContext);
-  const { loggedUser } = useContext(LoginContext);
+  const { loggedUser, getLoggedUser } = useContext(LoginContext);
 
   let history = useHistory()
   
@@ -29,7 +29,7 @@ export function ProfilePage() {
     history.push('/landing');
   }
   
-  useEffect(() => {setMainStyle("white"); setFooter(false)}, [setMainStyle, setFooter]);
+  useEffect(() => {setMainStyle("white"); setFooter(false); getLoggedUser()} , [setMainStyle, setFooter, getLoggedUser]);
 
   return (
     <>
@@ -42,7 +42,7 @@ export function ProfilePage() {
           <div className="profile-header__name">{loggedUser.name}</div>
         </div>
         <div className="profile-content">
-            <div onClick={() => goTo('/account')} className="profile-content__btn">
+            <div onClick={() => goTo('/profile/account')} className="profile-content__btn">
               <div className="profile-content__btn__text">Tu cuenta</div>
               <div className="profile-content__btn__icon"><FiChevronRight /></div>
             </div>
