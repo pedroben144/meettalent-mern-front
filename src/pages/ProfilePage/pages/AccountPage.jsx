@@ -29,7 +29,7 @@ export default function AccountPage() {
                 Mi Cuenta
             </Header>
             <Section>
-                <img className="account__img b-avatarImg b-avatarImg--big" src={loggedUser.avatar ? loggedUser.avatar : 'assets/images/user-placeholder.jpg'} alt={loggedUser.name} />
+                <img className="account__img b-avatarImg b-avatarImg--big" src={loggedUser.avatar ? loggedUser.avatar : '/assets/images/user-placeholder.jpg'} alt={loggedUser.name} />
                 <Rectangle white active>
                     <div className="account">
                         <div className="account__item">{loggedUser.nif}</div>
