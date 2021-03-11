@@ -26,7 +26,6 @@ function App() {
   const [ loggedUser, setLoggedUser ] = useState(null);
 
   const getLoggedUser = () => {
-    console.log('hey');
     const localToken = localStorage.getItem('token');
     const localUser = localStorage.getItem('user');
     const axiosConfig = {
@@ -53,7 +52,7 @@ function App() {
   return (
     <Router>
       <MainContext.Provider value={{ mainStyle, setMainStyle }}>
-        <LoginContext.Provider value={{ isLogged, setIsLogged, loggedUser, getLoggedUser }}>
+        <LoginContext.Provider value={{ isLogged, setIsLogged, loggedUser, setLoggedUser, getLoggedUser }}>
           <SearchContext.Provider value={{ searchValue, setSearchValue }}>
             <FooterContext.Provider value={{ setFooter }}>
               <MainWrapper>
