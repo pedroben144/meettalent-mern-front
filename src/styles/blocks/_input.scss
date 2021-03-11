@@ -45,9 +45,10 @@
     margin-top: 2rem;
     font-weight: $-f-semi;
     font-size: 1.6rem;
+    padding-left: 40px;
     
     &::placeholder {
-      padding-left: 20px;
+  
       color: $c-blue-75;
     }
 
