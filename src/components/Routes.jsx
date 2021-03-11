@@ -11,9 +11,11 @@ import { LoginPage } from "../pages/LoginPage/LoginPage";
 import CreateJobPage from "../pages/CreateJobPage/CreateJobPage";
 import { SearchPage } from "../pages/SearchPage/SearchPage";
 import { CreatePage } from "../pages/CreatePage/CreatePage";
+import { PeopleDetailPage } from "../pages/PeoplePage/components/PeopleDetailPage";
 import PrivateRoute from "../containers/PrivateRoute";
 import PublicRoute from "../containers/PublicRoute";
 import AccountPage from "../pages/ProfilePage/pages/AccountPage";
+
 
 export function Routes() {
   return (

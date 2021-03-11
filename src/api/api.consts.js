@@ -35,6 +35,5 @@ export const API = axios.create({
   timeout: 12000,
 
   headers: APIHeaders,
-
 });
 
