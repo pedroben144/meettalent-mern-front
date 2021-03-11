@@ -3,6 +3,7 @@ import moment from 'moment';
 
 import { MainContext } from "../../contexts/MainContext";
 import Section from "../../containers/Section";
+import { SearchContext } from "../../contexts/SearchContext";
 import { FooterContext } from "../../contexts/FooterContext";
 import Header from "../../containers/Header";
 import Rectangle from "../../containers/Rectangle";
@@ -11,14 +12,13 @@ import { CgSearch } from "react-icons/cg";
 import { FiUnlock,FiLock, FiUser, FiEyeOff, FiMapPin } from 'react-icons/fi';
 import { API } from "../../api/api.consts";
 import { useHistory } from "react-router";
-import axios from "axios";
 
 export function JobsPage() {
   const { setMainStyle } = useContext(MainContext);
   const { setFooter } = useContext(FooterContext);
-  //const { getLoggedUser } = useContext(LoginContext);
+  const { searchValue, setSearchValue } = useContext(SearchContext);
 
-  const [ offers, setOffers ] = useState();
+  const [ offers, setOffers ] = useState([]);
   const [filterOffers, setFilterOffers] = useState([]);
   const [open, setOpen] = useState(true);
 
@@ -56,24 +56,29 @@ export function JobsPage() {
     })
   }
 
-  const doSearching = (e) => {
-    const searchValue = e.target.value;
-    const findOffers = offers.filter(offer => {
-      return offer.title.toLowerCase().includes(searchValue.toLowerCase());
+  const doSearching = () => {
+    const value = document.querySelector('#searchOffer').value;
+    let findOffers;
+    findOffers = offers.filter(offer => {
+      return offer.title.toLowerCase().includes(value.toLowerCase());
     });
-    console.log(findOffers);
     setFilterOffers(findOffers);
   }
 
   const initialFilterOffers = () => {
-    setFilterOffers(offers);
+      doSearching();
+      setTimeout(() => setSearchValue({search:'', type:''}), 500)
   }
 
   const openJobs = () => {
+    const input$$ = document.querySelector('#searchOffer');
+    input$$.value = '';
     setOpen(true);
   }
 
   const closedJobs = () => {
+    const input$$ = document.querySelector('#searchOffer');
+    input$$.value = '';
     setOpen(false);
   }
 
@@ -86,7 +91,6 @@ export function JobsPage() {
     e.status = false;
     API.put('offers/status', e)
     .then(function(res) {
-      console.log(res);
       getOffers();
     })
     .catch(function(err) {
@@ -97,7 +101,6 @@ export function JobsPage() {
     e.status = true;
     API.put('offers/status', e)
     .then(function(res) {
-      console.log(res);
       getOffers();
     })
     .catch(function(err) {
@@ -108,20 +111,24 @@ export function JobsPage() {
   useEffect(getOffers,[open]);
   useEffect(() => setMainStyle("white"), [setMainStyle]);
   useEffect(() => setFooter(true), [setFooter]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(initialFilterOffers,[offers]);
 
   return (
     <>
       <Header goBack>Ofertas</Header>
       <Section>
-        <Rectangle blue active={true}>
+          <div className="c-jobs-page__header">
           <form className="c-people-page__form"  >
             <label className= "c-people-page__label" >
               <CgSearch className="c-people-page__icon-search"/>
-              <input className="input input--blue input--paddingPeople" type="text" id="searchOffer" placeholder="Buscar" onChange={(e) => {doSearching(e)}} />
+              <input defaultValue={searchValue.type === 'offers' ? searchValue.search : ''} className="input input--blue input--paddingPeople" type="text" id="searchOffer" placeholder="Buscar" onChange={() => {doSearching()}} />
             </label>
           </form>
           <div className="c-jobs-page__stateJobs"><p onClick={openJobs} style={ open ? {"color": "#44af69"} : {"color": "#d9d9db"}} >Abiertas</p><p style={ open === false ? {"color": "#44af69"} : {"color": "#d9d9db"}} onClick={closedJobs}>Cerradas</p></div>
+          </div>
+        <Rectangle blue active={true}>
+          <div className="c-jobs-page__content">
           {filterOffers && filterOffers.map((offer, i) => (
             <div className="cardJob" key={i}>
               <p className="cardJob__date">{moment(offer.releaseDate).format("DD/MM/YYYY")}</p>
@@ -135,6 +142,7 @@ export function JobsPage() {
               {open === false && <div className="cardJob__icon" onClick={() => handleUnLockIcon(offer)}  ><FiLock /></div>}
             </div>
           ))}
+          </div>
         </Rectangle>
       </Section>
     </>

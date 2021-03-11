@@ -39,13 +39,16 @@ export function SearchPage() {
       setSubmitError(true);
     } else {
       console.log(data);
-      setSearchValue(data.search);
       reset();
       setSubmitError(false);
       if (offers) {
+        data["type"] = "offers";
+        setSearchValue(data);
         history.push('jobs');
       }
       if (candidates) {
+        data["type"] = "candidates";
+        setSearchValue(data);
         history.push('people');
       }
     }

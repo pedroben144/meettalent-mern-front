@@ -10,6 +10,7 @@ import PeopleGallery from "./components/PeopleGallery/PeopleGallery";
 import RoundBtn from "../../components/RoundBtn";
 import { CgSearch } from "react-icons/cg";
 import { useHistory } from "react-router";
+import { SearchContext } from "../../contexts/SearchContext";
 
 export function PeoplePage() {
   let history = useHistory();
@@ -21,6 +22,7 @@ export function PeoplePage() {
 
   const { setMainStyle } = useContext(MainContext);
   const { setFooter } = useContext(FooterContext);
+  const { searchValue, setSearchValue } = useContext(SearchContext);
 
   const getPeople = () => {
     API.get('candidates').then((res) => {
@@ -29,15 +31,23 @@ export function PeoplePage() {
   }
 
   const doSearching = () => {
-    const searchValue = document.querySelector('#searchPeople').value;
+    const value = document.querySelector('#searchPeople').value;
     const findPeople = people.filter(candidate => {
-      return candidate.rol.toLowerCase().includes(searchValue.toLocaleLowerCase());
+      return candidate.rol.toLowerCase().includes(value.toLowerCase());
     })
     setFilterPeople(findPeople);
   }
 
-  const initialFilterPeople = () => {
-    setFilterPeople(people);
+  const initialFilterPeople = (e) => {
+    if (searchValue.type === 'candidates') {
+      const input$$ = document.querySelector('#searchPeople');
+      input$$.value = searchValue.search;
+      doSearching();
+      setTimeout(() => setSearchValue({search: '', type: ''}), 100)
+    }
+    else {
+      setFilterPeople(people);
+    }
   }
 
   const exitCandidates = () => {
@@ -47,6 +57,7 @@ export function PeoplePage() {
   useEffect(() => setMainStyle("white"), [setMainStyle]);
   useEffect(() => setFooter(true), [setFooter]);
   useEffect(getPeople,[]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(initialFilterPeople,[people]);
 
   return (
@@ -57,7 +68,7 @@ export function PeoplePage() {
             <form className="c-people-page__form"  >
               <label className= "c-people-page__label" >
                 <CgSearch className="c-people-page__icon-search"/>
-                <input className="input input--blue input--paddingPeople" type="text" id="searchPeople" placeholder="Buscar" onChange={(doSearching)}/>
+                <input className="input input--blue input--paddingPeople" type="text" id="searchPeople" placeholder="Buscar"  onChange={() => doSearching()}/>
               </label>
             </form>
           </div>
