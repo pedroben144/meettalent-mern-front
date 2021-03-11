@@ -21,7 +21,7 @@ export default function AccountPage() {
     useEffect(() => {
         setMainStyle('blue');
         getLoggedUser();
-    }, [setMainStyle, getLoggedUser])
+    }, [setMainStyle])
 
     return (
         <>

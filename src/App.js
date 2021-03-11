@@ -26,6 +26,7 @@ function App() {
   const [ loggedUser, setLoggedUser ] = useState(null);
 
   const getLoggedUser = () => {
+    console.log('hey');
     const localToken = localStorage.getItem('token');
     const localUser = localStorage.getItem('user');
     const axiosConfig = {
