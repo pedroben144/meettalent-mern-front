@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
+import { FiFileText, FiVideo } from 'react-icons/fi';
 
 import { MainContext } from "../../contexts/MainContext";
 import Header from "../../containers/Header";
@@ -6,6 +7,7 @@ import Section from "../../containers/Section";
 import { FooterContext } from "../../contexts/FooterContext";
 import { useHistory } from "react-router";
 import Rectangle from "../../containers/Rectangle";
+import MainWButton from "../../components/MainBtn";
 
 export function CreatePage() {
 
@@ -14,8 +16,11 @@ export function CreatePage() {
 
     let history = useHistory();
 
+    const goToJob = () => {
+        history.push('/create/job');
+    }
 
-    useEffect(() => setMainStyle("white"), [setMainStyle]);
+    useEffect(() => setMainStyle("blue-rectangle"), [setMainStyle]);
     useEffect(() => setFooter(true), [setFooter]);
 
     return (
@@ -26,6 +31,14 @@ export function CreatePage() {
         </Header>
         <Section>
             <Rectangle blue active={true}>
+                <div className="create">
+                    <div className="create__icon"><FiFileText /></div>
+                    <MainWButton fn={goToJob}>Crear oferta</MainWButton>
+                </div>
+                <div className="create">
+                    <div className="create__icon"><FiVideo /></div>
+                    <MainWButton>Crear prueba</MainWButton>
+                </div>
             </Rectangle>
         </Section>
         </>

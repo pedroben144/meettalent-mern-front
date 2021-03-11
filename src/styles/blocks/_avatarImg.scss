@@ -2,7 +2,7 @@
     
     border-radius: 50%;
     object-fit: cover;
-    object-position: top;
+    object-position: center;
 
     &--big{
         width: 130px;
@@ -13,8 +13,8 @@
         height: 80px;
     }
     &--small{
-        width: 70px;
-        height: 70px;
+        width: 50px;
+        height: 50px;
 
     }
     &--absolute{

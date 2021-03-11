@@ -1,61 +1,41 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import LandingPage from "../pages/LandingPage/LandingPage";
-import { NotFound } from "../pages/404Page/NotFound";
+import { JobsPage } from "../pages/JobsPage/JobsPage";
 import { HomePage } from "../pages/HomePage/HomePage";
 import { PeoplePage } from "../pages/PeoplePage/PeoplePage";
 import { ProfilePage } from "../pages/ProfilePage/ProfilePage";
 import { RecoverPage } from "../pages/RecoverPage/RecoverPage";
 import { SignUpPage } from "../pages/SignUpPage/SignUpPage";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
+import CreateJobPage from "../pages/CreateJobPage/CreateJobPage";
 import { SearchPage } from "../pages/SearchPage/SearchPage";
 import { CreatePage } from "../pages/CreatePage/CreatePage";
 import { PeopleDetailPage } from "../pages/PeoplePage/components/PeopleDetailPage";
+import PrivateRoute from "../containers/PrivateRoute";
+import PublicRoute from "../containers/PublicRoute";
+import AccountPage from "../pages/ProfilePage/pages/AccountPage";
+
 
 export function Routes() {
   return (
     <Switch>
-      <Route path="/jobs">
-        <p>JobsPage</p>
-      </Route>
-      <Route path="/create/hackathon">
-        <p>CreateJobPage</p>
-      </Route>
-      <Route path="/create/job">
-        <p>CreateJobPage</p>
-      </Route>
-      <Route path="/create">
-        <CreatePage />
-      </Route>
-      <Route path="/people/:idPeople">
-        <PeopleDetailPage/>
-      </Route>
-      <Route path="/people">
-        <PeoplePage />
-      </Route>
-      <Route path="/search">
-        <SearchPage />
-      </Route>
-      <Route path="/recover">
-        <RecoverPage />
-      </Route>
-      <Route path="/signup">
-        <SignUpPage />
-      </Route>
-      <Route path="/login">
-        <LoginPage />
-      </Route>
-      <Route path="/landing">
-        <LandingPage />
-      </Route>
-      <Route path="/profile">
-        <ProfilePage />
-      </Route>
-      <Route exact path="/home">
-        <HomePage />
-      </Route>
+      <PublicRoute component={RecoverPage} exact path="/recover" />
+      <PublicRoute component={SignUpPage} exact path="/signup" />
+      <PublicRoute component={LoginPage} exact path="/login" />
+      <PublicRoute component={LandingPage} exact path="/landing" />
+      <PrivateRoute component={JobsPage} exact path="/jobs/:idJob" />
+      <PrivateRoute component={JobsPage} exact path="/jobs" />
+      <PrivateRoute component={CreateJobPage} exact path="/create/job" />
+      <PrivateRoute component={CreatePage} exact path="/create" />
+      <PrivateRoute component={PeoplePage} exact path="/people/:idPeople" />
+      <PrivateRoute component={PeoplePage} exact path="/people" />
+      <PrivateRoute component={SearchPage} exact path="/search" />
+      <PrivateRoute component={AccountPage} exact path="/profile/account" />
+      <PrivateRoute component={ProfilePage} exact path="/profile" />
+      <PrivateRoute component={HomePage} exact path="/home" />
       <Route path="*">
-        <NotFound />
+        <Redirect to="/landing" />
       </Route>
     </Switch>
   );
