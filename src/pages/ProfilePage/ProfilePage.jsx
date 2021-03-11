@@ -29,7 +29,7 @@ export function ProfilePage() {
     setIsLogged(false);
     history.push('/landing');
   }
-  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {setMainStyle("white"); setFooter(false); getLoggedUser()} , [setMainStyle, setFooter]);
 
   return (
