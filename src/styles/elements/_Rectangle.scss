@@ -5,8 +5,13 @@
     position: absolute;
     top: 100%;
     padding: 2rem;
+    padding-bottom: 100px;
     transition: transform 0.5s;
     overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     &--active {
         transform: translateY(-100%);

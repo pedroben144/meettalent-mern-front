@@ -24,7 +24,6 @@ export function PeoplePage() {
 
   const getPeople = () => {
     API.get('candidates').then((res) => {
-      console.log(res.data.results);
       setPeople(res.data.results)
     })
   }
@@ -35,7 +34,6 @@ export function PeoplePage() {
       return candidate.rol.toLowerCase().includes(searchValue.toLocaleLowerCase());
     })
     setFilterPeople(findPeople);
-    console.log(searchValue);
   }
 
   const initialFilterPeople = () => {
@@ -55,17 +53,19 @@ export function PeoplePage() {
     <>
     <Header goBack fn={exitCandidates}>Candidatos</Header>
       <Section>
+          <div className="c-people-page">
+            <form className="c-people-page__form"  >
+              <label className= "c-people-page__label" >
+                <CgSearch className="c-people-page__icon-search"/>
+                <input className="input input--blue input--paddingPeople" type="text" id="searchPeople" placeholder="Buscar" onChange={(doSearching)}/>
+              </label>
+            </form>
+          </div>
         <Rectangle blue active={true}>
-          <form className="c-people-page__form"  >
-            <label className= "c-people-page__label" >
-              <CgSearch className="c-people-page__icon-search"/>
-              <input className="input input--blue input--paddingPeople" type="text" id="searchPeople" placeholder="Buscar" onChange={(doSearching)}/>
-            </label>
-          </form>
           <PeopleGallery   filterPeople={filterPeople}/>
-          <div className="c-people-page__button"><RoundBtn profile /></div>
           
          </Rectangle>
+          <div className="c-people-page__button"><RoundBtn profile /></div>
       </Section>
     </>
   );
