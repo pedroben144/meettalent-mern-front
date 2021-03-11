@@ -12,7 +12,7 @@ export function ProfilePage() {
 
   const { setMainStyle } = useContext(MainContext);
   const { setFooter } = useContext(FooterContext);
-  const { loggedUser, getLoggedUser } = useContext(LoginContext);
+  const { setIsLogged, loggedUser, getLoggedUser } = useContext(LoginContext);
 
   let history = useHistory()
   
@@ -26,6 +26,7 @@ export function ProfilePage() {
 
   const logOut = () => {
     localStorage.clear();
+    setIsLogged(false);
     history.push('/landing');
   }
   

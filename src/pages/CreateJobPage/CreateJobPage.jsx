@@ -31,20 +31,22 @@ export default function CreateJobPage(){
         API.get('offers').then((res)=>{
             
             console.log(res.data.results);
-
+            const localId = localStorage.getItem('user');
             for (let index = 0; index < res.data.results.length; index++) {
                 const element = res.data.results[index];
-                if(index=== res.data.results.length -4 ){
-                    arrayOffers.push(element);
-                }
-                if(index=== res.data.results.length -3 ){
-                    arrayOffers.push(element);
-                }
-                if(index=== res.data.results.length -2 ){
-                    arrayOffers.push(element);
-                }
-                if(index=== res.data.results.length -1 ){
-                    arrayOffers.push(element);
+                if (element.companyId === localId) {
+                    if(index=== res.data.results.length -4 ){
+                        arrayOffers.push(element);
+                    }
+                    if(index=== res.data.results.length -3 ){
+                        arrayOffers.push(element);
+                    }
+                    if(index=== res.data.results.length -2 ){
+                        arrayOffers.push(element);
+                    }
+                    if(index=== res.data.results.length -1 ){
+                        arrayOffers.push(element);
+                    }
                 }
                 
             }
