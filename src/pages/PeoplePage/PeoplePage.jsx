@@ -9,13 +9,10 @@ import { API } from "../../api/api.consts";
 import PeopleGallery from "./components/PeopleGallery/PeopleGallery";
 import RoundBtn from "../../components/RoundBtn";
 import { CgSearch } from "react-icons/cg";
-import { useHistory } from "react-router";
 import { SearchContext } from "../../contexts/SearchContext";
 
 export function PeoplePage() {
-  let history = useHistory();
 
-  
 
   const [people, setPeople] = useState([]);
   const [filterPeople, setFilterPeople] = useState([]);
@@ -50,10 +47,6 @@ export function PeoplePage() {
     }
   }
 
-  const exitCandidates = () => {
-    history.push('/home');
-  }
-
   useEffect(() => setMainStyle("white"), [setMainStyle]);
   useEffect(() => setFooter(true), [setFooter]);
   useEffect(getPeople,[]);
@@ -62,7 +55,7 @@ export function PeoplePage() {
 
   return (
     <>
-    <Header goBack fn={exitCandidates}>Candidatos</Header>
+    <Header>Candidatos</Header>
       <Section>
           <div className="c-people-page">
             <form className="c-people-page__form"  >

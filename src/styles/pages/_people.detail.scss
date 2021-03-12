@@ -1,4 +1,12 @@
-.c-white-rectangle{   
+.c-white {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-y: scroll;
+    min-height: 100%;
+    width: 100%;
+
+    &-rectangle{   
     position: absolute;
     top: 25%;
     padding: 4.5rem;
@@ -8,6 +16,8 @@
     height: 100vh;
     width: 100%;
     color: $c-blue-100;
+    padding-bottom: 5rem;
+
     &__image{
         width: 190px;
         height: 190px;
@@ -29,21 +39,24 @@
             color: $c-blue-75;
         }
     }
+
     &__container-iconText{
         display: flex;
     }
+
     &__rule{
         background-color: #00b3cd14;
         border: 0;
         height: 0.1px;
-        margin-top: 2.5rem;
-       
+        margin-top: 2.5rem; 
     }
+
     &__subtitles{
         color: $c-blue-75;
         font-size: 2.4rem;
         font-weight: 600;
     }
+
     &__perosnal-data{
         color: $c-gray-75;
         display: inline;
@@ -62,6 +75,7 @@
             margin-top: 3px;
         }
     }
+
     &__key-words{
         &--box{
             //background-color: $c-cyan;
@@ -82,6 +96,7 @@
             
         }
     }
+
     &__academic{
         &--degree{
             color: $c-cyan;
@@ -96,3 +111,4 @@
     }
 }
 
+}

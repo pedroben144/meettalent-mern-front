@@ -116,7 +116,7 @@ export function JobsPage() {
 
   return (
     <>
-      <Header goBack>Ofertas</Header>
+      <Header>Ofertas</Header>
       <Section>
           <div className="c-jobs-page__header">
           <form className="c-people-page__form"  >

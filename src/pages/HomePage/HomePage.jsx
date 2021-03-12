@@ -76,6 +76,7 @@ export function HomePage() {
             <input className="input input--search" onClick={goSearch} type="text" placeholder="Search" />
             <div className="input input--search--icon"><BiSearch /></div>
           </div>
+          <div className="home">
           <div className="home__content">
             <h3 className="home__content__title">Ofertas abiertas</h3>
             {offersData && offersData.map((offer, i) => (
@@ -90,6 +91,7 @@ export function HomePage() {
               <div className="card__icon" onClick={() => handleLockIcon(offer)}><FiUnlock /></div>
             </div>
           ))}
+          </div>
           </div>
 
           

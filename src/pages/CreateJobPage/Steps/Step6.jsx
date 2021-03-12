@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Header from '../../../containers/Header';
@@ -9,7 +10,6 @@ import { AiOutlineEdit } from "react-icons/ai";
 import MainWButton from '../../../components/MainBtn';
 import { CreateJobContext } from '../../../contexts/CreateJobContext';
 import { API } from '../../../api/api.consts';
-import { LoginContext } from '../../../contexts/LoginContext';
 
 
 
@@ -17,7 +17,6 @@ export default function Step6 (props) {
 
     const {register,handleSubmit} = useForm();
     const {setMainStyle} = useContext(MainContext);
-    const {loggedUser} = useContext(LoginContext);
     
 
     const {formData,setFormData} = useContext(CreateJobContext);

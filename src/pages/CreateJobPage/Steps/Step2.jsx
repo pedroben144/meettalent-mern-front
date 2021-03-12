@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import MainWButton from '../../../components/MainBtn';

@@ -45,6 +45,7 @@ export function PeopleDetailPage(props) {
             
             <Header goBack fn={goCandidates} >Candidatos</Header>
             <Section>
+            <div className="c-white">
             {candidate && <div className="c-white-rectangle">
             
             <img className="b-avatarImg  b-avatarImg--big b-avatarImg--absolute c-white-rectangle__image" src={candidate.avatar} alt=""/>
@@ -87,6 +88,7 @@ export function PeopleDetailPage(props) {
             </div>
             
         </div> }
+            </div>
             
             </Section>
         </>
