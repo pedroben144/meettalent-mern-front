@@ -74,8 +74,10 @@
 .candidate {
     display: flex;
     justify-content: space-around;
-    padding-top: 50px;
+    flex-wrap: wrap;
+    padding-top: 80px;
     width: 100%;
+    min-height: 100%;
     
     &-card {
         position: relative;
