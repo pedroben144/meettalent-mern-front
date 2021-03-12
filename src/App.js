@@ -22,7 +22,7 @@ function App() {
 
   const [ mainStyle, setMainStyle ] = useState('blue');
   const [ footer, setFooter ] = useState(false);
-  const [ startLoader, setStartLoader ] = useState(false);
+  const [ startLoader, setStartLoader ] = useState(true);
   const [ searchValue, setSearchValue ] = useState('');
   const [ isLogged, setIsLogged ] = useState(false);
   const [ loggedUser, setLoggedUser ] = useState(null);
