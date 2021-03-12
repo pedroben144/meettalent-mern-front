@@ -26,7 +26,7 @@ function App() {
   const [ searchValue, setSearchValue ] = useState('');
   const [ isLogged, setIsLogged ] = useState(false);
   const [ loggedUser, setLoggedUser ] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [ isLoading, setIsLoading ] = useState(false);
 
 
   const getLoggedUser = () => {

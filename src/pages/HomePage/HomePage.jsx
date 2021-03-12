@@ -19,7 +19,7 @@ export function HomePage() {
   const { getLoggedUser } = useContext(LoginContext);
   const { setIsLoading } = useContext(LoadingContext);
 
-  const [ offersData, setOffersData ] = useState(null);
+  const [ offersData, setOffersData ] = useState([]);
 
   let history = useHistory();
 
@@ -30,9 +30,8 @@ export function HomePage() {
   const getData = () => {
     setIsLoading(true);
     const localUser = localStorage.getItem('user');
-    axios.get(process.env.REACT_APP_BASE_URL + 'offers')
+    axios.get(process.env.REACT_APP_BASE_URL + '/offers')
     .then(function(res) {
-      setIsLoading(false);
       const data = res.data.results;
       let offers = [];
       for (const item of data) {
@@ -45,13 +44,13 @@ export function HomePage() {
     .catch(function(err) {
       console.log(err);
     })
+    setIsLoading(false);
   }
 
   const handleLockIcon = (e) => {
     e.status = false;
     axios.put(process.env.REACT_APP_BASE_URL + '/offers/status', e)
     .then(function(res) {
-      console.log(res);
       getData();
     })
     .catch(function(err) {
@@ -65,6 +64,7 @@ export function HomePage() {
 
   useEffect(() => {setMainStyle("white")}, [setMainStyle]);
   useEffect(() => setFooter(true), [setFooter]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => getData(), []);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => getLoggedUser(), [])

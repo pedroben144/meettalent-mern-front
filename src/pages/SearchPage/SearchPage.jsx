@@ -38,7 +38,6 @@ export function SearchPage() {
     if (!offers && !candidates) {
       setSubmitError(true);
     } else {
-      console.log(data);
       reset();
       setSubmitError(false);
       if (offers) {

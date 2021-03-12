@@ -23,7 +23,6 @@ export default function Step2(props){
         const newFormData = {...formData, ...data};
         setFormData(newFormData);
         props.changeStep();
-        console.log(newFormData);
         
     }
     

@@ -17,7 +17,6 @@ export default function Step3(props) {
     const doSubmit = (data) => {
         const newFormData = {...formData, ...data};
         setFormData(newFormData);
-        console.log(newFormData);
         props.changeStep();
     }
 

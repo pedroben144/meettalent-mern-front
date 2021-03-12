@@ -27,7 +27,6 @@ export default function Step2(props){
             // console.log(data);
             axios.post(process.env.REACT_APP_BASE_URL + '/register', newUser)
             .then(function(res) {
-                console.log(res);
                 reset();
                 props.changeStep();
             })

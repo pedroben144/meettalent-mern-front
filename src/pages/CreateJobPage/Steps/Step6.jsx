@@ -29,9 +29,7 @@ export default function Step6 (props) {
         }
         const newFormData = {...formData, ...data, ...status, ...company};
         setFormData(newFormData);
-        console.log(newFormData);
         API.post('offers',newFormData).then((res)=>{
-            console.log('register offer')
         });
         props.changeStep();
     }
