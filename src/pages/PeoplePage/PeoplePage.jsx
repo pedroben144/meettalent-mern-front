@@ -11,6 +11,7 @@ import RoundBtn from "../../components/RoundBtn";
 import { CgSearch } from "react-icons/cg";
 import { useHistory } from "react-router";
 import { SearchContext } from "../../contexts/SearchContext";
+import { LoadingContext } from "../../contexts/LoadingContext";
 
 export function PeoplePage() {
   let history = useHistory();
@@ -24,8 +25,12 @@ export function PeoplePage() {
   const { setFooter } = useContext(FooterContext);
   const { searchValue, setSearchValue } = useContext(SearchContext);
 
+  const { setIsLoading } = useContext(LoadingContext);
+
   const getPeople = () => {
+    setIsLoading(true);
     API.get('candidates').then((res) => {
+      setIsLoading(false);
       setPeople(res.data.results)
     })
   }

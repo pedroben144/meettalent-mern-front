@@ -8,11 +8,13 @@ import Section from '../../../containers/Section';
 import { MainContext } from '../../../contexts/MainContext';
 import { LoginContext } from '../../../contexts/LoginContext';
 import axios from 'axios';
+import { LoadingContext } from '../../../contexts/LoadingContext';
 
 export default function AccountPage() {
 
     const { setMainStyle } = useContext(MainContext);
     const { loggedUser, getLoggedUser, setLoggedUser } = useContext(LoginContext);
+    const { setIsLoading } = useContext(LoadingContext);
 
     const [ edit, setEdit ] = useState(false);
 
@@ -23,6 +25,7 @@ export default function AccountPage() {
     }
 
     const handleImageUpload = (e) => {
+        setIsLoading(true);
         const image = e.target.files[0];
         const data = new FormData();
         data.append('file', image);
@@ -31,6 +34,7 @@ export default function AccountPage() {
 
         axios.post('https://api.cloudinary.com/v1_1/tamasigerald/image/upload', data)
         .then(function(res) {
+            setIsLoading(false);
             const user = {...loggedUser, avatar: res.data.secure_url};
             setLoggedUser(user);
         })
