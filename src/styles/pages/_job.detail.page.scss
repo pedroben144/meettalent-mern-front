@@ -1,0 +1,148 @@
+.job-detail {
+    padding: 3rem;
+    width: 100%;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0;
+        width: 100%;
+
+        &__item {
+            display: flex;
+            align-items: center;
+            font-size: 2.2rem;
+        }
+
+        &__icon {
+            color: $c-blue-50;
+            font-size: 2rem;
+            margin-right: 0.5rem;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 3rem;
+
+        &__desc {
+            background-color: $c-blue-25;
+            border-radius: 1rem;
+            padding: 2rem;
+            width: 90%;;
+        }
+
+        &__info {
+            margin-top: 20px;
+            padding: 0 2rem;
+            width: 100%;
+
+            &__item {
+                margin-bottom: 2rem;
+
+                &__title {
+                    margin: 1rem 0;
+                    color: $c-blue-50;
+                }
+
+                &__text {
+                    font-weight: $-f-medium;
+                    margin: 0;
+                }
+            }
+        }
+
+        &__candidates {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+
+            &__btn {
+                background-color: $c-blue-50;
+                border-radius: 1rem;
+                color: $c-blue-25;
+                font-weight: $-f-medium;
+                padding: 1rem 2rem;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.candidate {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 50px;
+    width: 100%;
+    
+    &-card {
+        position: relative;
+        background-color: $c-blue-0;
+        border-radius: 1rem;
+        color: $c-blue-100;
+        margin: 0;
+        padding: 1rem;
+        height: 150px;
+        width: 45%;
+
+
+        &__img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            height: 80px;
+            width: 80px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        &__info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: $c-blue-75;
+            font-weight: $-f-semi;
+
+            &__name {
+                position: relative;
+                margin: 0;
+                padding-top: 40%;
+            }
+            
+            &__surname {
+                position: relative;
+                margin: 0;
+            }
+            
+            &__location {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                bottom: 0.5rem;
+                // left: 0;
+                // width: 100%;
+                border-top: 1px solid $c-gray-50;
+                height: 30px;
+                width: 90%;
+                margin: 0;
+                font-weight: $-f-regular;
+                color: $c-blue-100;
+            }
+        }
+
+        &__fav {
+            position: absolute;
+            top: 3.5rem;
+            right: 1rem;
+            color: $c-green-dark;
+            font-size: 3rem;
+            cursor: pointer;
+        }
+    }
+} 

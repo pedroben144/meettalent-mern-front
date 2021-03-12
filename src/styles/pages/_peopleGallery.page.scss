@@ -1,0 +1,83 @@
+.c-peopleGallery-page {
+    &__parent-container{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        padding-top: 30px;
+    }
+    &__figure-container{
+        margin-top: 20%;
+        height: 160px;
+        width: 45%;
+        display: flex;
+        text-align: center;
+    }
+
+    &__figure{
+        padding: 1rem;
+        position: relative;
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $c-gray-25;
+        border-radius: 1rem;
+        padding-top: 45px;
+        padding-bottom: 40px;
+    }
+
+    &__h3{
+        font-size: 2rem;
+        margin-top: 0;
+        margin-bottom: 1rem ;
+        color: $c-blue-75;
+    }
+
+    &__h4{
+        font-size: 1.4rem;
+        margin: 0;
+        margin-bottom: 1rem ;
+        color: $c-cyan;
+        font-weight: $-f-regular;
+        position: absolute;
+        top: 95px;
+    }
+
+    &__p{
+        font-size: 1.2rem;
+        color: $c-gray-75;
+    }
+
+    &__icon-container{
+        position: relative;
+        display: flex;
+    }
+
+    &__location-container{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        border-top:solid $c-gray-30 0.5px;
+        position: absolute;
+        bottom: 0.5rem;
+    }
+
+    &__icon{
+        position: absolute;
+        left:-14px;
+        bottom: 9px;
+        color: $c-gray-75;
+        font-size: 1.6rem;
+    }
+
+    &__img{
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+}

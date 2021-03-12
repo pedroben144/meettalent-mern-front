@@ -1,0 +1,46 @@
+.b-roundBtn{
+
+    background-color: $c-white;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 0px $c-gray-50;
+
+    &__small{
+        width: 6rem;
+        height: 6rem;
+
+    }
+    &__medium{
+        width: 6.5rem;
+        height: 6.5rem;
+        
+    }
+    &__big{
+        width: 7.6rem;
+        height: 7.6rem;
+
+    }
+    &__edit{
+        font-size: 3.5rem;
+        color: $c-cyan;
+    }
+    &__profile{
+        font-size: 3.4rem;
+        color: $c-cyan;
+    }
+    &__plus{
+        font-size: 3.2rem;
+        color:$c-blue-100;
+        &--small{
+            font-size: 2.6rem;
+        }
+
+    }
+
+    &__marginIcon{
+        margin-top: 0.6rem;
+    }
+    
+}

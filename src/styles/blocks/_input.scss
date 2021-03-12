@@ -1,0 +1,70 @@
+.input{
+  position: relative;
+  width: 38rem;
+  height: 6.3rem;
+  border-radius: 8px;
+  outline: 0;
+  
+  
+  &--search {
+    position: relative;
+    background-color: rgb(216, 238, 248);
+    height: 5rem;
+    border: 0;
+    color: rgb(43, 129, 168);
+    font-size: 15px;
+    padding: 0.5rem 2rem; 
+    padding-left: 5rem;
+    cursor: pointer;
+
+    &--icon {
+      position: absolute;
+      top: 50%;
+      left: 2.5rem;
+      height: 2rem;
+      width: 2rem;
+      transform: translate(-50%, -50%);
+      font-size: 2.5rem;
+      line-height: 3rem;
+      color: $c-gray-75;
+    }
+  }
+
+  &--blue {
+    background-color: rgb(216, 238, 248);
+    border: 0;
+    color: rgb(43, 129, 168);
+    font-size: 15px;
+    padding: 2rem;
+    &::placeholder {
+      color: #2b81a875;
+     
+    }
+  }
+
+  &--paddingPeople{
+    margin-top: 2rem;
+    font-weight: $-f-semi;
+    font-size: 1.6rem;
+    padding-left: 40px;
+    
+    &::placeholder {
+  
+      color: $c-blue-75;
+    }
+
+  }
+  
+
+  &--white {
+    background-color: rgb(255, 255, 255);
+    border: 0.2rem solid rgb(228, 235, 239);
+    color: rgb(109, 114, 120);
+    font-size: 15px;
+    padding: 2rem;
+    &::placeholder {
+      color: #6d727878;
+    }
+  }
+}
+

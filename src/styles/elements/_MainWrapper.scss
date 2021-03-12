@@ -1,0 +1,38 @@
+.main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: background-color 0.2s;
+
+
+    &--blue {
+        background-color: $c-blue-100;
+        color: $c-gray-25;
+    }
+
+    &--white {
+        background-color: $c-gray-25;
+    }
+
+    &--logo {
+        &::before {
+            content: url('../../logo.svg');
+            position: absolute;
+            bottom: 8%;
+            left: -15%;
+            max-height: 80vh;
+            width: 105%;
+            max-width: 500px;
+            transform: rotate(20deg);
+        }
+    }
+    &--bottom{
+        background-color: $c-gray-25;
+    }
+
+    &--blue-rectangle{
+        background-color: $c-gray-25;
+    }
+} 
+
