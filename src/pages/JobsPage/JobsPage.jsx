@@ -12,11 +12,13 @@ import { CgSearch } from "react-icons/cg";
 import { FiUnlock,FiLock, FiUser, FiEyeOff, FiMapPin } from 'react-icons/fi';
 import { API } from "../../api/api.consts";
 import { useHistory } from "react-router";
+import { LoadingContext } from "../../contexts/LoadingContext";
 
 export function JobsPage() {
   const { setMainStyle } = useContext(MainContext);
   const { setFooter } = useContext(FooterContext);
   const { searchValue, setSearchValue } = useContext(SearchContext);
+  const { setIsLoading } = useContext(LoadingContext);
 
   const [ offers, setOffers ] = useState([]);
   const [filterOffers, setFilterOffers] = useState([]);
@@ -26,8 +28,10 @@ export function JobsPage() {
 
   const getOffers = () => {
     const localUser = localStorage.getItem('user');
+    setIsLoading(true);
 
     API.get('offers').then((res) => {
+      setIsLoading(false);
       const data = res.data.results;
 
       let openOffers= [];

@@ -13,6 +13,8 @@ import MainWrapper from './containers/Main';
 import Footer from "./components/Footer";
 import StartUp from "./components/StartUp";
 import axios from "axios";
+import { LoadingContext } from "./contexts/LoadingContext";
+import { Loading } from "./components/Loading/Loading";
 
 
 
@@ -24,6 +26,8 @@ function App() {
   const [ searchValue, setSearchValue ] = useState('');
   const [ isLogged, setIsLogged ] = useState(false);
   const [ loggedUser, setLoggedUser ] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const getLoggedUser = () => {
     const localToken = localStorage.getItem('token');
@@ -56,9 +60,12 @@ function App() {
           <SearchContext.Provider value={{ searchValue, setSearchValue }}>
             <FooterContext.Provider value={{ setFooter }}>
               <MainWrapper>
-                {startLoader && <StartUp />}
-                {startLoader === false && <Routes/>}
-                {footer && <Footer />}
+                <LoadingContext.Provider value={{isLoading, setIsLoading}}>
+                <Loading/>
+                  {startLoader && <StartUp />}
+                  {startLoader === false && <Routes/>}
+                  {footer && <Footer />}
+                </LoadingContext.Provider>
               </MainWrapper>
             </FooterContext.Provider>
           </SearchContext.Provider>

@@ -10,12 +10,14 @@ import { FooterContext } from "../../contexts/FooterContext";
 import { useHistory } from "react-router";
 import { LoginContext } from "../../contexts/LoginContext";
 import axios from "axios";
+import { LoadingContext } from "../../contexts/LoadingContext";
 
 export function HomePage() {
 
   const { setMainStyle } = useContext(MainContext);
   const { setFooter } = useContext(FooterContext);
   const { getLoggedUser } = useContext(LoginContext);
+  const { setIsLoading } = useContext(LoadingContext);
 
   const [ offersData, setOffersData ] = useState(null);
 
@@ -26,9 +28,11 @@ export function HomePage() {
   }
 
   const getData = () => {
+    setIsLoading(true);
     const localUser = localStorage.getItem('user');
-    axios.get(process.env.REACT_APP_BASE_URL + '/offers')
+    axios.get(process.env.REACT_APP_BASE_URL + 'offers')
     .then(function(res) {
+      setIsLoading(false);
       const data = res.data.results;
       let offers = [];
       for (const item of data) {

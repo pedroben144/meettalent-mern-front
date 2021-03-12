@@ -12,6 +12,7 @@ import { FiPhone } from "react-icons/fi";
 import { useHistory, useParams } from 'react-router';
 import { API } from '../../../api/api.consts'
 import { FooterContext } from '../../../contexts/FooterContext';
+import { LoadingContext } from '../../../contexts/LoadingContext';
 
 
 export function PeopleDetailPage(props) {
@@ -20,12 +21,15 @@ export function PeopleDetailPage(props) {
 
     const {setMainStyle} = useContext(MainContext);
     const { setFooter } = useContext(FooterContext);
+    const { setIsLoading } = useContext(LoadingContext);
 
     const [candidate, setCandidate] = useState([]);
     const{idPeople} = useParams();
 
     const getCandidate = () => {
+        setIsLoading(true);
         API.get("candidates/" + idPeople).then((res) => {
+            setIsLoading(false);
             setCandidate(res.data.results);
         })
     }
