@@ -16,6 +16,7 @@ import PrivateRoute from "../containers/PrivateRoute";
 import PublicRoute from "../containers/PublicRoute";
 import AccountPage from "../pages/ProfilePage/pages/AccountPage";
 import JobDetailPage from "../pages/JobsPage/pages/JobDetailPage";
+import AboutPage from "../pages/AboutPage/AboutPage";
 
 
 export function Routes() {
@@ -35,6 +36,7 @@ export function Routes() {
       <PrivateRoute component={AccountPage} exact path="/profile/account" />
       <PrivateRoute component={ProfilePage} exact path="/profile" />
       <PrivateRoute component={HomePage} exact path="/home" />
+      <Route path="/about" exact><AboutPage /></Route>
       <Route path="*">
         <Redirect to="/landing" />
       </Route>

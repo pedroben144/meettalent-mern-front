@@ -11,7 +11,8 @@ import Slide1 from './components/Slide1';
 import Slide2 from './components/Slide2';
 import Slide3 from './components/Slide3';
 import Slide4 from './components/Slide4';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import Header from '../../containers/Header';
 
 SwiperCore.use([Pagination]);
 
@@ -37,6 +38,9 @@ export default function LandingPage() {
 
     return (
         <>
+            <Header>
+                <Link to="/about" className="c-login-page__restore-link">Meet the team</Link>
+            </Header>
             <Section>
 
             <Swiper

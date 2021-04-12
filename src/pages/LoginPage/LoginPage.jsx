@@ -1,12 +1,13 @@
 import React, { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { NavLink, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 
 import { MainContext } from "../../contexts/MainContext";
 import Section from "../../containers/Section";
 import MainWButton from "../../components/MainBtn";
 import axios from "axios";
 import { LoginContext } from "../../contexts/LoginContext";
+import Header from "../../containers/Header";
 
 export function LoginPage() {
   const { setMainStyle } = useContext(MainContext);
@@ -39,6 +40,9 @@ export function LoginPage() {
 
   return (
     <>
+      <Header>
+        <Link to="/about" className="c-login-page__restore-link">Meet the team</Link>
+      </Header>
       <Section>
         <div className="c-login-page">
           <div className="c-login-page__imgs-cont">

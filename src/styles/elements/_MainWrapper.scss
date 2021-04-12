@@ -36,3 +36,19 @@
     }
 } 
 
+@media screen and (min-width: 376px) {
+    .main {
+        position: relative;
+        top: 50vh;
+        left: 50%;
+        max-width: 375px;
+        max-height: 812px;
+        transform: translate(-50%, -50%);
+
+        border-radius: 2rem;
+    }
+
+    body {
+        background-color: $c-blue-75;
+    }
+}
